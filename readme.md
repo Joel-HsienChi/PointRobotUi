@@ -73,7 +73,7 @@ and password:
 
 <br/><br/>
 
-1. UI_Login_function class:
+1. `class UI_Login_function:`
 
    1. `check_ID_password_function(self, userid, password):`
      
