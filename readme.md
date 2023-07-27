@@ -506,13 +506,13 @@ and password:
       into database.
       
       No return value for this function.
-      
 
+      
    10. `remove_plate(self, plateid):`
 
-      Drop the plate that plateid = `plateid` from the database.
-      
-      No return value for this function.
+         Drop the plate that plateid = `plateid` from the database.
+         
+         No return value for this function.
    
 
    11. `deassign_assign_plate_to_user(self, mode, plateid, userid):`
