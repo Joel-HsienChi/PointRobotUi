@@ -19,12 +19,9 @@ and password:
 ID:         ADMIN
 PASSWORD:   Point1 
 ```
-- While adding a new users, the default password will be set as "Point1", which the user can 
-edit it after logging in.
+- While adding a new users, the default password will be set as "Point1", which the user can edit it after logging in.
 
--   In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing 
-purpose, the change will be applied only when the checkbox of the row is checked, including 
-deletion and edit.
+-   In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing purpose, the change will be applied only when the checkbox of the row is checked, including deletion and edit.
 
 -   In Advance UI, the table display 20 row of data per pages.
 
