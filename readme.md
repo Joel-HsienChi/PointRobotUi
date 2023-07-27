@@ -72,28 +72,21 @@ and password:
    - There are many variables that share the same name in different function, that is for convenience purpose. Therefore some of the function can simply use function's name as a parameter, and handle multiple function's action by just itself.
 
 
-3.  UI_Login_function class:
-
-- `check_ID_password_function(self, userid, password):`
-
-This function is connected to the login button in login_Ui, which will take the context 
-that user types in textbox "UserID_Input" as userid and "password_Input" as password, 
-checking the availability of them, and determine the login type to be recorded.
-
-No matter whether user's success or failed the login action, the record will be added into 
-database's Login_record table.
-
-However, if the login action failed, the error message will be displayed.
-
-Regardless the type of failure, whenever login action failed, function will return  a 
-boolean value of False. 
-
-On the other hand, whenever login action success, function will return boolean value of True.
-
-Finally, regardless user login in Admin or Normal user mode, as long as the login is 
-successful,this window (Loginui) will be closed.
-
-P.S. both parameters userid and password are string.
+   1.  UI_Login_function class:
+      - `check_ID_password_function(self, userid, password):`
+      This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input" as password, checking the availability of them, and determine the login type to be recorded.
+      
+      No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
+      
+      However, if the login action failed, the error message will be displayed.
+      
+      Regardless the type of failure, whenever login action failed, function will return a boolean value of False. 
+      
+      On the other hand, whenever login action success, function will return boolean value of True.
+      
+      Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
+      
+      P.S. both parameters userid and password are string.
 
 
 2.      open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):
