@@ -497,7 +497,6 @@ and password:
    9. `add_new_plate(self, plateid):`
 
       Add a plate with given string parameter `plateid`, and default value of:
-  
          ```python
          Last_Assigned_User_ID = "NONE"
          Available_for_assign = "TRUE"
@@ -506,15 +505,15 @@ and password:
          ```
       into database.
       
-      No return value for this function. 
+      No return value for this function.
       
 
    10. `remove_plate(self, plateid):`
 
       Drop the plate that plateid = `plateid` from the database.
       
-      No return value for this function. 
-
+      No return value for this function.
+   
 
    11. `deassign_assign_plate_to_user(self, mode, plateid, userid):`
 
