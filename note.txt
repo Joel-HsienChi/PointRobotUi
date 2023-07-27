@@ -1,0 +1,80 @@
+pyuic5 -x Delete.ui -o Delete.py
+pyuic5 -x Login.ui -o Login.py
+pyuic5 -x Register.ui -o Register.py
+pyuic5 -x Advance.ui -o Advance.p
+pyuic5 -x Basic.ui -o Basic.py
+pyuic5 -x Search.ui -o Search.py
+pyuic5 -x Show_ID.ui -o Show_ID.py
+pyuic5 -x Info_Editor.ui -o info_Editor.py
+pyuic5 -x Concentrate_Advance.ui -o Concentrate_Advance.py
+pyuic5 -x Search_Login_history.ui -o Search_Login_history.py
+
+Password-1:
+c4ca4238a0b923820dcc509a6f75849b
+
+Default Password = Point1
+
+Password: encoded by md5 format
+
+
+unit test python
+
+class and function diverse                  (V)
+
+test plan                                   (V)
+
+panda for sorting
+
+login history pages view                    (V)
+
+log 檔案 (儲存使用者新增編輯之類的資料)           (V)
+
+ui only pass the values                     (V)
+
+one more column in front of the database including all three table  (V)
+
+logout button
+
+
+logger:
+    Login               (V)
+    user_info_edit      (V)
+    Advance_info_edit   (V)
+    Register            (V)
+    Login_history       (待定)
+    plate_info          ()
+
+    
+
+
+
+
+test case:
+
+    Login:
+            Password doesn't match ID
+            ID doesn't exist
+            normal user try entering Advance mode
+    Register:
+            Password < 6 character
+            Password contains illegal character
+            Password doesn't contains Capital, Lower case, and number
+
+
+
+code 的說明手冊
+
+sample code
+
+
+
+
+新增Info editor 的錯誤訊息
+
+edit error message by color
+
+default by white
+
+valid will be green 
+
+invalid will be red
