@@ -3,9 +3,9 @@
 Before start using this UI program, please read following information:
 
 1.  The python file is located at:
-    '''bash
+    ```bash
     /Project_Folder/UI_MySQL.py
-    '''
+    ```
     please run it with python.
 
 4.  Edit the database information located in: 
