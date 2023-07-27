@@ -517,57 +517,57 @@ and password:
 
    11. `deassign_assign_plate_to_user(self, mode, plateid, userid):`
 
-      This function will deassign or assign plates from or to user, according to the integer 
-      parameter `mode`.
-
-         ```python
-         mode = 0 form deassign plate from user.
-         mode = 1 from assign plate to user.
-         ```
-      
-      Deassign plate will update the plate's availability with given `plateid` to `TRUE`, and 
-      update `LAST_DEASSIGN_TIME` to current time.
-      
-      Assign plate will update the plate's availability with given `plateid` to `FALSE`, and 
-      update `LAST_ASSIGN_TIME` to current time.
-      
-      Finally, logs the message to the logging file.
-      
-      No return value for this function. 
-      
+         This function will deassign or assign plates from or to user, according to the integer 
+         parameter `mode`.
+   
+            ```python
+            mode = 0 form deassign plate from user.
+            mode = 1 from assign plate to user.
+            ```
+         
+         Deassign plate will update the plate's availability with given `plateid` to `TRUE`, and 
+         update `LAST_DEASSIGN_TIME` to current time.
+         
+         Assign plate will update the plate's availability with given `plateid` to `FALSE`, and 
+         update `LAST_ASSIGN_TIME` to current time.
+         
+         Finally, logs the message to the logging file.
+         
+         No return value for this function. 
+         
 
    12. `update_plate_user_have(self, userid):`
-   
-      Update the number of plate that user's id = `userid` by checking the database. 
       
-      No return value for this function. 
-   
+         Update the number of plate that user's id = `userid` by checking the database. 
+         
+         No return value for this function. 
+      
    
    13. `get_data_from_database(self, table, type, value, pages):`
    
-      This function will get the data from given `table` in database according to the given string 
-      parameters `type`, `value`, and `pages`, where `type` represents the searching type and 
-      `value` the specific value that can be search under the type. 
+         This function will get the data from given `table` in database according to the given string 
+         parameters `type`, `value`, and `pages`, where `type` represents the searching type and 
+         `value` the specific value that can be search under the type. 
+         
+         For instance, when `type` is `id`, then value will be the actual id text that user input.
+         
+         Finally, fetch the data into a list as a return value.
       
-      For instance, when `type` is `id`, then value will be the actual id text that user input.
-      
-      Finally, fetch the data into a list as a return value.
-   
    
    14. `get_row_number_from_database(self, table, type, value):`
    
-      Get the number of row that each `table` in database has, fetching it to an Integer then 
-      returns.
+         Get the number of row that each `table` in database has, fetching it to an Integer then 
+         returns.
+         
+         The `type` and `value` are the same as `get_data_from_database()` function above, 
       
-      The `type` and `value` are the same as `get_data_from_database()` function above, 
-   
    15. `get_plate_id_user_have(self, userid):`
    
-      This function get the `plate_id` of the plate that user with `userid` had got assigned, 
-      which will be used for deassiging while deleting the user that still has plates assigned to. 
-      
-      The return value is a list that contains all the `plate_id` of the plate that belongs to this 
-      user.
+         This function get the `plate_id` of the plate that user with `userid` had got assigned, 
+         which will be used for deassiging while deleting the user that still has plates assigned to. 
+         
+         The return value is a list that contains all the `plate_id` of the plate that belongs to this 
+         user.
 
 
 ## Logger.py's manual:
