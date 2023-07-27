@@ -1,7 +1,5 @@
 # Readme
 
-<br/>
-
 ## Critical!
 
 Before start using this UI program, please read following information:
@@ -63,38 +61,38 @@ and password:
    ```
 
 
-2. Function classes:
+## Function classes:
 
-   - Each UI class has its own function class to handle all the action, and the only exception is UI_Concentrate_Advance since it has three tabs, therefore there's three individual funcitons for each of them.
-   
-   - There're two extra function classes, MySQL_function and helper_function that handles some general action, and MySQL relating action.
-   
-   - Whenever any function encountered exception, it will return -1 and log the message into "Error.log".
-   
-   - There are many variables that share the same name in different function, that is for convenience purpose. Therefore some of the function can simply use function's name as a parameter, and handle multiple function's action by just itself.
+- Each UI class has its own function class to handle all the action, and the only exception is UI_Concentrate_Advance since it has three tabs, therefore there's three individual funcitons for each of them.
+
+- There're two extra function classes, MySQL_function and helper_function that handles some general action, and MySQL relating action.
+
+- Whenever any function encountered exception, it will return -1 and log the message into "Error.log".
+
+- There are many variables that share the same name in different function, that is for convenience purpose. Therefore some of the function can simply use function's name as a parameter, and handle multiple function's action by just itself.
 
 <br/><br/>
 
-   1.  UI_Login_function class:
+1.  UI_Login_function class:
 
-      1. `check_ID_password_function(self, userid, password):`
-        
-         This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input"
-         as password, checking the availability of them, and determine the login type to be recorded.
-            
-         No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
-            
-         However, if the login action failed, the error message will be displayed.
-            
-         Regardless the type of failure, whenever login action failed, function will return a boolean value of False. 
-            
-         On the other hand, whenever login action success, function will return boolean value of True.
-            
-         Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
+   1. `check_ID_password_function(self, userid, password):`
+     
+      This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input"
+      as password, checking the availability of them, and determine the login type to be recorded.
          
-         P.S. both parameters userid and password are string.
+      No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
+         
+      However, if the login action failed, the error message will be displayed.
+         
+      Regardless the type of failure, whenever login action failed, function will return a boolean value of False. 
+         
+      On the other hand, whenever login action success, function will return boolean value of True.
+         
+      Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
+      
+      P.S. both parameters userid and password are string.
 <br/>
-   - `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
+   2. `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
          
       These two functions are used for displaying the windows when user input the correct userid 
       and password.
@@ -104,7 +102,7 @@ and password:
          
       No return values for both of these function.
 <br/>
-   - `display_normal_welcome_message():`
+   3. `display_normal_welcome_message():`
 
       This function will only be called when user logins in normal mode, it will capture the userid
       and display a popup windows that ask whether user want to display the personal information 
@@ -113,9 +111,9 @@ and password:
       No return values for this function.
 <br/>
 <br/>
-   2. UI_Info_Editor_function class:
+2. UI_Info_Editor_function class:
 
-   - `Global variable:`
+   1. `Global variable:`
 
       initial_data:
       List variable to store data that just captured from database.
@@ -124,44 +122,46 @@ and password:
       List variable to store edited data that was captured from table.  
 
 
-2.      show_user(self, pages):
+   2. `show_user(self, pages):`
 
-This function will capture user's information from database, then insert checkbox and user 
-information into table.
+      This function will capture user's information from database, then insert checkbox and user 
+      information into table.
+      
+      Meanwhile, the raw data that just got captured from database will be stored into the  
+      list "self.initial_data".
 
-Meanwhile, the raw data that just got captured from database will be stored into the  
-list "self.initial_data".
-
-This function does has one unused parameter "pages", which is completely normal. Since there
-will be another function named exactly same as this function in other class, and for the
-purpose of making code more compact, these two function that shares the same name will be 
-called in other function at the same line. 
-
-Therefore I make these two function having the same parameter, despite it's not used. 
-
-No return values for this function.
+      This function does has one unused parameter "pages", which is completely normal. Since there
+      will be another function named exactly same as this function in other class, and for the
+      purpose of making code more compact, these two function that shares the same name will be 
+      called in other function at the same line. 
+      
+      Therefore I make these two function having the same parameter, despite it's not used. 
+      
+      No return values for this function.
 
 
-III.UI_Search_Edit_function class:
+3. UI_Search_Edit_function class:
 
-1.      Global variable:
+   1. `Global variable:`
 
-initial_data:
-List to store data that just captured from database.
-
-edited_data:
-List to store edited data that was captured from table.  
-
-user_info_pages_maximum:
-Integer that represent the maximum pages that can be displayed in table, to
-prevent user access the pages that doesn't contains data.
-
-current_search_type:
-String that represent current searching type, including "all", "id", etc. 
-Initially set to "all". 
-
-check_button_array_search_edit:
-List to store the index of row that mistake_proofing checkbox is checked. 
+   - initial_data:
+   
+   List to store data that just captured from database.
+   
+   - edited_data:
+   
+   List to store edited data that was captured from table.  
+   
+   user_info_pages_maximum:
+   Integer that represent the maximum pages that can be displayed in table, to
+   prevent user access the pages that doesn't contains data.
+   
+   current_search_type:
+   String that represent current searching type, including "all", "id", etc. 
+   Initially set to "all". 
+   
+   check_button_array_search_edit:
+   List to store the index of row that mistake_proofing checkbox is checked. 
 
 
 2.      show_user(self, pages):
