@@ -141,93 +141,90 @@ and password:
 
 
 3. UI_Search_Edit_function class:
+   1. `Global variable:`
+
+      `initial_data:`
+      List variable to store data that just captured from database.
+      
+      `edited_data:`
+      List variable to store edited data that was captured from table.  
+
+   
+      `user_info_pages_maximum:`
+      Integer that represent the maximum pages that can be displayed in table, to
+      prevent user access the pages that doesn't contains data.
+      
+      `current_search_type:`
+      String that represent current searching type, including "all", "id", etc. 
+      Initially set to "all". 
+      
+      `check_button_array_search_edit:`
+      List to store the index of row that mistake_proofing checkbox is checked. 
+
+
+   2. `show_user(self, pages):`
+
+      This function will capture user's information from database according to the current 
+      searching type and the interger "page" parameter, which represent the page number, then 
+      insert checkbox and user information into table.
+
+      No return value for this function.
+
+
+   3. `open_Register_window(self):`
+
+      This functions are used for opening the register windows when user press the "add a 
+      user" button.
+      
+      No return value for this function.
+
+
+   4. `show_delete_confirm(self):`
+
+      This function will display a popup windows with confirm message, Pressing OK button will 
+      call the delete_user() function below, while pressing Cancel will cancel the action.  
+      
+      No return value for this function.
+
+
+   5. `delete_user(self):`
+
+      This function will only be called when user confirm the deletion in delete_confirm window, 
+      then will delete users from database (only when the mistake-proofing at its row are checked).
+      
+      Besides, if the users that are going to be deleted has assigned plates, this function will 
+      automatically deassign those plates.
+
+      No return value for this function.
+
+
+4. UI_Register_function class:
+
+   1. `press_register(self, userid, password, real_name):`
+
+      This function will check if inputs in register window is valid. If so, then the user with 
+      inputted information will be added into the database.
+      
+      userid, password, and real_name are given by parameter, while gender and permission are 
+      captured by checking whether the button is checked.
+      
+      If the user is added successfully, this function will return a boolean value True, and 
+      will return False elsewise.
+      
+      P.S. All parameters are string.
+
+
+5. UI_Login_History_function class:
 
    1. `Global variable:`
 
-   - initial_data:
-   
-   List to store data that just captured from database.
-   
-   - edited_data:
-   
-   List to store edited data that was captured from table.  
-   
-   user_info_pages_maximum:
+   login_history_pages_maximum:
    Integer that represent the maximum pages that can be displayed in table, to
    prevent user access the pages that doesn't contains data.
    
    current_search_type:
    String that represent current searching type, including "all", "id", etc. 
-   Initially set to "all". 
-   
-   check_button_array_search_edit:
-   List to store the index of row that mistake_proofing checkbox is checked. 
-
-
-2.      show_user(self, pages):
-
-This function will capture user's information from database according to the current 
-searching type and the interger "page" parameter, which represent the page number, then 
-insert checkbox and user information into table.
-
-No return value for this function.
-
-
-3.      open_Register_window(self):
-
-This functions are used for opening the register windows when user press the "add a 
-user" button.
-
-No return value for this function.
-
-
-4.      show_delete_confirm(self):
-
-This function will display a popup windows with confirm message, Pressing OK button will 
-call the delete_user() function below, while pressing Cancel will cancel the action.  
-
-No return value for this function.
-
-
-5.      delete_user(self):
-
-This function will only be called when user confirm the deletion in delete_confirm window, 
-then will delete users from database (only when the mistake-proofing at its row are checked).
-
-Besides, if the users that are going to be deleted has assigned plates, this function will 
-automatically deassign those plates.
-
-No return value for this function.
-
-
-
-IV. UI_Register_function class:
-
-1.      press_register(self, userid, password, real_name):
-
-This function will check if inputs in register window is valid. If so, then the user with 
-inputted information will be added into the database.
-
-userid, password, and real_name are given by parameter, while gender and permission are 
-captured by checking whether the button is checked.
-
-If the user is added successfully, this function will return a boolean value True, and 
-will return False elsewise.
-
-P.S. All parameters are string.
-
-
-V.  UI_Login_History_function class:
-
-1.      Global variable:
-
-login_history_pages_maximum:
-Integer that represent the maximum pages that can be displayed in table, to
-prevent user access the pages that doesn't contains data.
-
-current_search_type:
-String that represent current searching type, including "all", "id", etc. 
-Initially set to "all"
+   Initially set to "all"
 
 
 2.      show_login_history(self, pages):
