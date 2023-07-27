@@ -62,24 +62,18 @@ PASSWORD:   Point1
 ```
 
 
-2. Function classes:
+- Function classes:
 
-Each UI class has its own function class to handle all the action, and the only exception is 
-UI_Concentrate_Advance since it has three tabs, therefore there's three individual funcitons 
-for each of them.
+1. Each UI class has its own function class to handle all the action, and the only exception is UI_Concentrate_Advance since it has three tabs, therefore there's three individual funcitons for each of them.
 
-There're two extra function classes, MySQL_function and helper_function that handles some 
-general action, and MySQL relating action.
+2. There're two extra function classes, MySQL_function and helper_function that handles some general action, and MySQL relating action.
 
-Whenever any function encountered exception, it will return -1 and log the message 
-into "Error.log".
+3. Whenever any function encountered exception, it will return -1 and log the message into "Error.log".
 
-There are many variables that share the same name in different function, that is for 
-convenience purpose. Therefore some of the function can simply use function's name as a 
-parameter, and handle multiple function's action by just itself.
+4. There are many variables that share the same name in different function, that is for convenience purpose. Therefore some of the function can simply use function's name as a parameter, and handle multiple function's action by just itself.
 
 
-I.  UI_Login_function class:
+~  UI_Login_function class:
 
 1.      check_ID_password_function(self, userid, password):
 
