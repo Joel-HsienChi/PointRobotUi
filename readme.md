@@ -47,10 +47,9 @@ retranslateUi().
 behavier, if there's any need to mod any Ui classes, please mod it in modding() function, and 
 make sure to call the modding() in the end of setUpUI(). 
 
-3. Similarly, when regernating the Ui function, please copy and overwrite classes setUpUI() and 
-retranslateUi(), then call the modding() in the end of setUpUI().
+3. Similarly, when regernating the Ui function, please copy and overwrite classes setUpUI() and
+retranslateUi(), then call the modding() in the end of setUpUI(). Sample code is shown below:
 
-Sample code:
 ```python
 class Ui_sample(object):
 # generated code
