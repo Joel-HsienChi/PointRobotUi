@@ -1,5 +1,5 @@
 # Readme
-
+<br/>
 ## Critical!
 
 Before start using this UI program, please read following information:
@@ -29,7 +29,7 @@ and password:
 
 8. Logger.py is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
 
-
+<br/><br/>
 
 ## UI_MySQL.py file contains four Ui classes and eight function classes:
 
@@ -73,7 +73,7 @@ and password:
 
 
    1.  UI_Login_function class:
-      - `check_ID_password_function(self, userid, password):`
+         - `check_ID_password_function(self, userid, password):`
 
          This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input" as password, checking the availability of them, and determine the login type to be recorded.
          
