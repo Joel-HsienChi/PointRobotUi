@@ -21,7 +21,8 @@ Critical!! Before start using this UI program, please read following information
 
         7.      All the format relating information can be founded in Readme.md
 
-        8.      Logger.py is a helper class that can easily generate a logger object for logging purpose.
+        8.      Logger.py is a helper class that can easily generate a logger object for logging purpose, and
+                manual regarding it is locate at end of this document.
 
 
 Please follow the following format while editing user info:
