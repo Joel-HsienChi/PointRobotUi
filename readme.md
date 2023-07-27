@@ -521,7 +521,7 @@ and password:
          parameter `mode`.
    
          ```python
-         mode = 0 form deassign plate from user.
+         mode = 0 from deassign plate from user.
          mode = 1 from assign plate to user.
          ```
          
