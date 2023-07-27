@@ -29,6 +29,10 @@ PASSWORD:   Point1
 
 - Logger.py is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
 
+- This program is currently running a local database, please mod the database information before running the program, which is located in `__main__`
+
+     `SQL_function = MySQL_function("localhost", "root", "Ar0340252", "UI_database")`
+
 ## Please follow the following format while editing user info:
 
 1. Edit User info:
