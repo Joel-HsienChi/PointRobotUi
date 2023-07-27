@@ -2315,7 +2315,8 @@ if __name__ == "__main__":
     Login_History_function = UI_Login_History_function()
     Plate_Info_function = UI_Plate_info_function()
     helper = helper_function()
-    SQL_function = MySQL_function("localhost", "root", "Ar0340252", "UI_database")
+    SQL_function = MySQL_function("localhost", "root", "password", "UI_database")
+
 
     # table in database's name
     user_info_table = "User_Information"
