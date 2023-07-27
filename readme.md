@@ -2,15 +2,15 @@
         
 Before start using this UI program, please read following information:
 
-1.  The python file is located at:
-    ```bash
-    /Project_Folder/UI_MySQL.py
-    ```
+- The python file is located at:
+```bash
+/Project_Folder/UI_MySQL.py
+```
 
-2.  Edit the database information located in:
-    ```python
-    class MySQL_function() >> def connect_to_database(self)
-    ```
+- Edit the database information located in:
+```python
+class MySQL_function() >> def connect_to_database(self)
+```
 5.  Run the program and check the "Admin mode" checkbox, then Login with following id 
     and password:
     ```bash
