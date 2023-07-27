@@ -73,7 +73,7 @@ PASSWORD:   Point1
 4. There are many variables that share the same name in different function, that is for convenience purpose. Therefore some of the function can simply use function's name as a parameter, and handle multiple function's action by just itself.
 
 
-~  UI_Login_function class:
+--  UI_Login_function class:
 
 1.      check_ID_password_function(self, userid, password):
 
