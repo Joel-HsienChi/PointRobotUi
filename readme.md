@@ -108,9 +108,8 @@ and password:
       editing window.
          
       No return values for this function.
-<br/>
-<br/>
-3. UI_Info_Editor_function class:
+
+2. UI_Info_Editor_function class:
 
    1. `Global variable:`
 
