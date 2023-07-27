@@ -448,7 +448,7 @@ and password:
 
       These functions will check the properties of `userid` from database's `table` according to 
       the integer parameter `mode`.
-         ```python
+         ```
          mode = 0 for checking "userid" and "password" matches or not.
          mode = 1 for checking "userid" is an ADMIN or not.
          mode = 2 for checking "userid" exists or not.
@@ -497,7 +497,7 @@ and password:
    9. `add_new_plate(self, plateid):`
 
       Add a plate with given string parameter `plateid`, and default value of:
-         ```python
+         ```
          Last_Assigned_User_ID = "NONE"
          Available_for_assign = "TRUE"
          Last_Assign_Time = "NONE"
