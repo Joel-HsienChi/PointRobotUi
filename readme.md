@@ -113,12 +113,10 @@ and password:
 
    1. `Global variable:`
 
-      `initial_data:`
-      
+      - `initial_data:`
       List variable to store data that just captured from database.
       
-      `edited_data:`
-      
+      - `edited_data:`
       List variable to store edited data that was captured from table.  
 
 
