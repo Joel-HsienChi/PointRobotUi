@@ -74,33 +74,34 @@ and password:
 <br/><br/>
 
    1.  UI_Login_function class:
-      - `check_ID_password_function(self, userid, password):`
 
-         This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input" as password, checking the availability of them, and determine the login type to be recorded.
-         
-         No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
-         
-         However, if the login action failed, the error message will be displayed.
-         
-         Regardless the type of failure, whenever login action failed, function will return a boolean value of False. 
-         
-         On the other hand, whenever login action success, function will return boolean value of True.
-         
-         Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
-         
-         P.S. both parameters userid and password are string.
+         - `check_ID_password_function(self, userid, password):`
+
+            This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input" as password, checking the availability of them, and determine the login type to be recorded.
+            
+            No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
+            
+            However, if the login action failed, the error message will be displayed.
+            
+            Regardless the type of failure, whenever login action failed, function will return a boolean value of False. 
+            
+            On the other hand, whenever login action success, function will return boolean value of True.
+            
+            Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
+            
+            P.S. both parameters userid and password are string.
 
 <br/>
    
-      - `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
+         - 'open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):'
          
-         These two functions are used for displaying the windows when user input the correct userid 
-         and password.
-         
-         Only one of these windows will be displayed, which depends on whether user had checked the 
-         admin mode checkbox. 
-         
-         No return values for both of these function.
+            These two functions are used for displaying the windows when user input the correct userid 
+            and password.
+            
+            Only one of these windows will be displayed, which depends on whether user had checked the 
+            admin mode checkbox. 
+            
+            No return values for both of these function.
 
 <br/>
 
