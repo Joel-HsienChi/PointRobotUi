@@ -1888,13 +1888,19 @@ class helper_function:
 
 class MySQL_function:
 
+    def __init__(self, host, user, password, database):
+        self.host = host
+        self.user = user
+        self.password = password
+        self.database = database
+
     def connect_to_database(self):
         try:
             mydb = mysql.connector.connect(
-                host="localhost",
-                user="root",
-                password="Ar0340252",
-                database="UI_database"
+                host=self.host,
+                user=self.user,
+                password=self.password,
+                database=self.database
             )
             return mydb
         except:
@@ -2309,7 +2315,7 @@ if __name__ == "__main__":
     Login_History_function = UI_Login_History_function()
     Plate_Info_function = UI_Plate_info_function()
     helper = helper_function()
-    SQL_function = MySQL_function()
+    SQL_function = MySQL_function("localhost", "root", "Ar0340252", "UI_database")
 
     # table in database's name
     user_info_table = "User_Information"
