@@ -9,9 +9,11 @@
 /Project_Folder/UI_MySQL.py
 ```
 
-- Edit the database information located in:
+- This program is currently running a local database, please mod the database information before running the program, which is located in `__main__`
+
 ```python
-class MySQL_function() >> def connect_to_database(self)
+     `SQL_function = MySQL_function("localhost", "root", "password", "UI_database")`
+
 ```
 - Run the program and check the "Admin mode" checkbox, then Login with following id 
 and password:
@@ -29,9 +31,6 @@ PASSWORD:   Point1
 
 - Logger.py is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
 
-- This program is currently running a local database, please mod the database information before running the program, which is located in `__main__`
-
-     `SQL_function = MySQL_function("localhost", "root", "password", "UI_database")`
 
 ## Please follow the following format while editing user info:
 
