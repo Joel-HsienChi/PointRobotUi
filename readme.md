@@ -1,5 +1,7 @@
 # Readme
+
 <br/>
+
 ## Critical!
 
 Before start using this UI program, please read following information:
@@ -34,7 +36,7 @@ and password:
 ## UI_MySQL.py file contains four Ui classes and eight function classes:
 
 
-   ## UI classes:
+## UI classes:
 
 1. There're four Ui classes for Login (Ui_Login()), Register (Ui_Register()), normal user Info Editor (Ui_Info_Editor()), and Admin user info editor interface. 
 
