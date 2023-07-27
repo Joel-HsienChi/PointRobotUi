@@ -91,17 +91,16 @@ and password:
       Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
       
       P.S. both parameters userid and password are string.
-<br/>
+
    2. `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
          
-      These two functions are used for displaying the windows when user input the correct userid 
-      and password.
+      These two functions are used for displaying the windows when user input the correct userid and password.
          
       Only one of these windows will be displayed, which depends on whether user had checked the 
       admin mode checkbox. 
          
       No return values for both of these function.
-<br/>
+
    3. `display_normal_welcome_message():`
 
       This function will only be called when user logins in normal mode, it will capture the userid
@@ -111,7 +110,7 @@ and password:
       No return values for this function.
 <br/>
 <br/>
-2. UI_Info_Editor_function class:
+3. UI_Info_Editor_function class:
 
    1. `Global variable:`
 
@@ -140,7 +139,7 @@ and password:
       No return values for this function.
 
 
-3. UI_Search_Edit_function class:
+4. UI_Search_Edit_function class:
    1. `Global variable:`
 
       `initial_data:`
@@ -198,7 +197,7 @@ and password:
       No return value for this function.
 
 
-4. UI_Register_function class:
+5. UI_Register_function class:
 
    1. `press_register(self, userid, password, real_name):`
 
@@ -214,7 +213,7 @@ and password:
       P.S. All parameters are string.
 
 
-5. UI_Login_History_function class:
+6. UI_Login_History_function class:
 
    1. `Global variable:`
 
