@@ -77,8 +77,8 @@ and password:
 
    1. `check_ID_password_function(self, userid, password):`
      
-      This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input"
-      as password, checking the availability of them, and determine the login type to be recorded.
+      This function is connected to the login button in login_Ui, which will take the context that user types in textbox `UserID_Input` as `userid` and `password_Input`
+      as `password`, checking the availability of them, and determine the login type to be recorded.
          
       No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
          
@@ -113,10 +113,10 @@ and password:
 
    1. `Global variable:`
 
-      initial_data:
+      `initial_data:`
       List variable to store data that just captured from database.
       
-      edited_data:
+      `edited_data:`
       List variable to store edited data that was captured from table.  
 
 
@@ -126,9 +126,9 @@ and password:
       information into table.
       
       Meanwhile, the raw data that just got captured from database will be stored into the  
-      list "self.initial_data".
+      list `self.initial_data`.
 
-      This function does has one unused parameter "pages", which is completely normal. Since there
+      This function does has one unused parameter `pages`, which is completely normal. Since there
       will be another function named exactly same as this function in other class, and for the
       purpose of making code more compact, these two function that shares the same name will be 
       called in other function at the same line. 
@@ -153,8 +153,8 @@ and password:
       prevent user access the pages that doesn't contains data.
       
       `current_search_type:`
-      String that represent current searching type, including "all", "id", etc. 
-      Initially set to "all". 
+      String that represent current searching type, including `all`, `id`, etc. 
+      Initially set to `all`. 
       
       `check_button_array_search_edit:`
       List to store the index of row that mistake_proofing checkbox is checked. 
@@ -163,7 +163,7 @@ and password:
    2. `show_user(self, pages):`
 
       This function will capture user's information from database according to the current 
-      searching type and the interger "page" parameter, which represent the page number, then 
+      searching type and the interger `page` parameter, which represent the page number, then 
       insert checkbox and user information into table.
 
       No return value for this function.
@@ -180,7 +180,7 @@ and password:
    4. `show_delete_confirm(self):`
 
       This function will display a popup windows with confirm message, Pressing OK button will 
-      call the delete_user() function below, while pressing Cancel will cancel the action.  
+      call the `delete_user()` function below, while pressing Cancel will cancel the action.  
       
       No return value for this function.
 
@@ -203,7 +203,7 @@ and password:
       This function will check if inputs in register window is valid. If so, then the user with 
       inputted information will be added into the database.
       
-      userid, password, and real_name are given by parameter, while gender and permission are 
+      `userid`, `password`, and `real_name` are given by parameter, while `gender` and `permission` are 
       captured by checking whether the button is checked.
       
       If the user is added successfully, this function will return a boolean value True, and 
@@ -215,108 +215,107 @@ and password:
 6. UI_Login_History_function class:
 
    1. `Global variable:`
-
-   login_history_pages_maximum:
-   Integer that represent the maximum pages that can be displayed in table, to
-   prevent user access the pages that doesn't contains data.
    
-   current_search_type:
-   String that represent current searching type, including "all", "id", etc. 
-   Initially set to "all"
+      `login_history_pages_maximum:`
+      Integer that represent the maximum pages that can be displayed in table, to
+      prevent user access the pages that doesn't contains data.
+      
+      `current_search_type:`
+      String that represent current searching type, including `all`, `id`, etc. 
+      Initially set to `all`
 
 
-2.      show_login_history(self, pages):
-This function will capture user's information from database according to the current 
-searching type and the interger "page" parameter, which represent the page number.
-
-No return value for this function.                
-
-
-
-V.  UI_Plate_info_function class:
-
-1.      Global variable:
-
-login_history_pages_maximum:
-Integer that represent the maximum pages that can be displayed in table, to
-prevent user access the pages that doesn't contains data.
-
-current_search_type:
-String that represent current searching type, including "all", "user_id", etc. 
-Initially set to "all"
-
-check_button_array_search_edit:
-List to store the index of row that mistake_proofing checkbox is checked. 
+   2. `show_login_history(self, pages):`
+      This function will capture user's information from database according to the current 
+      searching type and the interger `page` parameter, which represent the page number.
+      
+      No return value for this function.                
 
 
-2.      show_plate_info(self, pages):
 
-This function will capture plate information from database according to the current searching
-type and the integer "page" parameter, which represent the page number, then insert checkbox
-row by row.
+7. UI_Plate_info_function class:
 
-No return value for this function. 
+   1. `Global variable:`
 
-3.      show_add_new_plate_window(self):
-
-This function will display a popup windows with text edit box, user can either typing the 
-plate id and press "OK" button (or press return key on keyboard), or scan the barcode on plate
-with barcode scanner. 
-
-Both actions above will add the plate with given id into the database, with default 
-values: 
-
-(Available_for_assign == TRUE, Last_Assign_Time == NONE, Last_Deassign_Time == NONE)
-
-This function performed a recursion, until user press "Cancel" button, or press "OK" button 
-without input. 
+      `login_history_pages_maximum:`
+      Integer that represent the maximum pages that can be displayed in table, to
+      prevent user access the pages that doesn't contains data.
+      
+      `current_search_type:`
+      String that represent current searching type, including `all`, `user_id`, etc. 
+      Initially set to `all`
+      
+      `check_button_array_search_edit:`
+      List to store the index of row that mistake_proofing checkbox is checked. 
 
 
-4.      show_delete_plate_confirm(self):
+   2. `show_plate_info(self, pages):`
 
-This function will display a popup windows with confirm message, Pressing OK button will 
-call the remove_plate() function below, while pressing Cancel will cancel the action.  
+      This function will capture plate information from database according to the `current_searching_type` and the integer `page` parameter, which represent the page number, then insert checkbox row by row.
+            
+      No return value for this function. 
 
-No return value for this function. 
+   3. `show_add_new_plate_window(self):`
 
-
-5.      plate_action(self, mode, userid):
-
-This function handle all the plate regarding action, and the integer parameter "mode" 
-tells which action this function should perform:
-
-mode = 0 for deassign the plate from user.
-mode = 1 for remove the plate.
-mode = 2 for assign the plate to user.
-
-No return value for this function. 
-
-
-6.      show_assign_plate_to_user_window(self):
-
-This function will display a popup windows with text edit box, which user can type the userid 
-in.
-
-After the "OK" button is pressed, the plates that its row's mistake-proofing checkbox is 
-checked, and "Available_for_assign" of that plate is "TRUE", will be assigned to the user. 
-Then update user's plate number in database.
-
-If the userid doesn't exist, then the action will fail and display the error message.
-
-No return value for this function. 
+      This function will display a popup windows with text edit box, user can either typing the 
+      plate id and press "OK" button (or press return key on keyboard), or scan the barcode on plate
+      with barcode scanner. 
+      
+      Both actions above will add the plate with given id into the database, with default 
+      values: 
+      
+      `Available_for_assign == TRUE, Last_Assign_Time == NONE, Last_Deassign_Time == NONE`
+      
+      This function performed a recursion, until user press "Cancel" button, or press "OK" button 
+      without input. 
 
 
-7.      show_deassign_plate_to_user_window(self):
+   4. `show_delete_plate_confirm(self):`
+      
+      This function will display a popup windows with confirm message, Pressing OK button will 
+      call the `remove_plate()` function below, while pressing Cancel will cancel the action.  
+      
+      No return value for this function. 
+      
 
-This function will display a popup windows with confirm message, Pressing OK button will 
-call the deassign_plate() function below, while pressing Cancel will cancel the action.  
+   5. `plate_action(self, mode, userid):`
 
-No return value for this function. 
+   This function handle all the plate regarding action, and the integer parameter `mode` tells which action this function should perform:
+
+      ```python
+      mode = 0 for deassign the plate from user.
+      mode = 1 for remove the plate.
+      mode = 2 for assign the plate to user.
+      ```
+      
+   No return value for this function. 
+   
+
+   6. `show_assign_plate_to_user_window(self):`
+
+      This function will display a popup windows with text edit box, which user can type the userid 
+      in.
+      
+      After the "OK" button is pressed, the plates that its row's mistake-proofing checkbox is 
+      checked, and `Available_for_assign` of that plate is `TRUE`, will be assigned to the user. 
+      Then update user's plate number in database.
+      
+      If the userid doesn't exist, then the action will fail and display the error message.
+      
+      No return value for this function. 
 
 
-VI. helper_function class:
+   7. `show_deassign_plate_to_user_window(self):`
 
-1.      encode_password(self, password):
+      This function will display a popup windows with confirm message, Pressing OK button will 
+      call the `deassign_plate()` function below, while pressing Cancel will cancel the action.  
+      
+      No return value for this function. 
+
+
+7. `class helper_function:`
+
+   1. `encode_password(self, password):`
 
 This function will encode the parameter "password" in md5, then return the encoded string.
 
