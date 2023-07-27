@@ -31,6 +31,8 @@ deletion and edit.
 - Logger.py is a helper class that can easily generate a logger object for logging purpose, and
 manual regarding it is locate at end of this document.
 
+
+
 ## UI_MySQL.py file contains four Ui classes and eight function classes:
 
 
