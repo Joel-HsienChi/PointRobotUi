@@ -88,7 +88,7 @@ and password:
          Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
          
          P.S. both parameters userid and password are string.
-
+      <br/>
    
       - `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
          
