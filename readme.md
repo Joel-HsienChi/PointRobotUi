@@ -141,22 +141,21 @@ and password:
 4. UI_Search_Edit_function class:
    1. `Global variable:`
 
-      `initial_data:`
+      - `initial_data:`
       List variable to store data that just captured from database.
       
-      `edited_data:`
+      - `edited_data:`
       List variable to store edited data that was captured from table.  
 
-   
-      `user_info_pages_maximum:`
+      - `user_info_pages_maximum:`
       Integer that represent the maximum pages that can be displayed in table, to
       prevent user access the pages that doesn't contains data.
       
-      `current_search_type:`
+      - `current_search_type:`
       String that represent current searching type, including `all`, `id`, etc. 
       Initially set to `all`. 
       
-      `check_button_array_search_edit:`
+      - `check_button_array_search_edit:`
       List to store the index of row that mistake_proofing checkbox is checked. 
 
 
@@ -216,11 +215,11 @@ and password:
 
    1. `Global variable:`
    
-      `login_history_pages_maximum:`
+      - `login_history_pages_maximum:`
       Integer that represent the maximum pages that can be displayed in table, to
       prevent user access the pages that doesn't contains data.
       
-      `current_search_type:`
+      - `current_search_type:`
       String that represent current searching type, including `all`, `id`, etc. 
       Initially set to `all`
 
@@ -237,15 +236,15 @@ and password:
 
    1. `Global variable:`
 
-      `login_history_pages_maximum:`
+      - `login_history_pages_maximum:`
       Integer that represent the maximum pages that can be displayed in table, to
       prevent user access the pages that doesn't contains data.
       
-      `current_search_type:`
+      - `current_search_type:`
       String that represent current searching type, including `all`, `user_id`, etc. 
       Initially set to `all`
       
-      `check_button_array_search_edit:`
+      - `check_button_array_search_edit:`
       List to store the index of row that mistake_proofing checkbox is checked. 
 
 
@@ -280,7 +279,7 @@ and password:
 
    5. `plate_action(self, mode, userid):`
 
-   This function handle all the plate regarding action, and the integer parameter `mode` tells which action this function should perform:
+      This function handle all the plate regarding action, and the integer parameter `mode` tells which action this function should perform:
 
       ```python
       mode = 0 for deassign the plate from user.
@@ -288,7 +287,7 @@ and password:
       mode = 2 for assign the plate to user.
       ```
       
-   No return value for this function. 
+      No return value for this function. 
    
 
    6. `show_assign_plate_to_user_window(self):`
@@ -317,274 +316,275 @@ and password:
 
    1. `encode_password(self, password):`
 
-This function will encode the parameter "password" in md5, then return the encoded string.
+      This function will encode the parameter `password` in md5, then return the encoded string.
 
-P.S. Parameter "password" is a string desired to be encoded.
+      P.S. Parameter "password" is a string desired to be encoded.
 
 
-2.      get_time(self):
+   2. `get_time(self):`
 
-This function returns current time.
+      This function returns current time.
 
+   3. `lock_the_Column(self, display_table, lock_column):`
 
-3.      lock_the_Column(self, display_table, lock_column):
+      This function makes the `display_table`'s `lock_column` read only.
 
-This function makes the "display_table"'s "lock_column" read only.
+      P.S. Patameter `display_table` is a `Qtablewidget` that like to mod, while `lock_column` is an
+      Integer that stands for the number of column to be locked.
 
-P.S. Patameter "display_table" is a Qtablewidget that like to mod, while "lock_column" is an
-Integer that stands for the number of column to be locked.
+      No return value for this function. 
 
-No return value for this function. 
 
+   4. `has_capital_letters(self, password):,
+      has_lower_letters(self, password), 
+      has_numbers(self, password), 
+      has_invalid_hcaracter(self, password):`
 
-4.      has_capital_letters(self, password), 
-has_lower_letters(self, password), 
-has_numbers(self, password), 
-has_invalid_hcaracter(self, password):
+      These function are used to check each properties that a valid password or userid should have,
+      will be used in the following `check_password_availability()` function, and returns a boolean 
+      values.
+      
+      P.S. Parameter `password` is a String to be checked if it contains all the above properties.
 
-These function are used to check each properties that a valid password or userid should have,
-will be used in the following check_password_availability() function, and returns a boolean 
-values.
 
-P.S. Parameter "password" is a String to be checked if it contains all the above properties.
+   5. `check_password_availability(self, password):`
 
+      This function will check if the password is availability by calling the `has......` function 
+      above, and returns a boolean value.
+      
+      P.S. Parameter `password` is a String to be checked if it's valid.
 
-5.      check_password_availability(self, password):
 
-This function will check if the password is availability by calling the "has......" function 
-above, and returns a boolean value.
+   6. `data_comparison(self, edited_data, initial_data):`
 
-P.S. Parameter "password" is a String to be checked if it's valid.
+      This function compare two list parameters: `edited_data` and `initial_data`, then log the message
+      that record the changes that had been made into the logging file.
+      
+      No return value for this function. 
 
 
-6.      data_comparison(self, edited_data, initial_data):
+   7. `insert_data_into_table(self, display_table, data):`
 
-This function compare two list parameters, edited_data and initial_data, then log the message
-that record the changes that had been made into the logging file.
+      Depends on the `display_table` (QTableWidget object) parameter that get passed into this 
+      function, it will insert list object `data` and checkboxes corresponding to passed 
+      `display_table`.
+      
+      No return value for this function. 
 
-No return value for this function. 
 
+   8. `insert-checkbox(self, function_class, display_table, data):`
 
-7.      insert_data_into_table(self, display_table, data):
+      This function is a helper function for `insert_data_into_table()` function, which will insert
+      checkbox into the given display_table (QTableWidget object) in given 
+      `function_class` (function object). 
+      
+      Then, store the checkbox into the list `.check_button_array` that all the function class that
+      needed checkbox has. 
+      
+      No return value for this function. 
+      
 
-Depends on the display_table (QTableWidget object) parameter that get passed into this 
-function, it will insert list object "data" and checkboxes corresponding to passed 
-display_table.
+   9. `get-pages_maximum(self, function_class, table):`
 
-No return value for this function. 
+      This function get the number of data that database's table have according to the 
+      `current_search_type` of given `function_class`, then divides them by 20 to get the 
+      page number (Integer) and return it.
+      
+      The "table" variable is a String, which will be used by passing the tables name that were 
+      declared in `__main__`. 
 
 
-8.      insert-checkbox(self, function_class, display_table, data):
+   10. `set_current_search_type(self, function_class, type):`
 
-This function is a helper function for insert_data_into_table() function, which will insert
-checkbox into the given display_table (QTableWidget object) in given 
-function_class (function object). 
+      This function is a setter for `.current_search_type` in other function class, which will 
+      set the `.current_search_type` in `function_class` to the `type`
+      
+      No return value for this function. 
 
-Then, store the checkbox into the list ".check_button_array" that all the function class that
-needed checkbox has. 
 
-No return value for this function. 
+   11. `get_data_from_table(self, display_table, function_class):`
 
+      This function will capture the data in the `display_table`, and store it into the list 
+      `.edited_data` in `function_class`. 
+      
+      Then compare it with `function_class.initial_data`.
+      
+      Finally, refresh the `display_table`.
+      
+      No return value for this function. 
+   
+   
 
-9.      get-pages_maximum(self, function_class, table):
+8. MySQL_function class:
 
-This function get the number of data that database's table have according to the 
-current_search_type of given function_class, then divides them by 20 to get the 
-page number (Integer) and return it.
+   - This function class contains all the function that contains SQL statements.
 
-The "table" variable is a String, which will be used by passing the tables name that were 
-declared in __main__. 
+   1. `connect_to_database(self):`
 
+      Connect to the target database, and returns a `MySQLConnection` (mydb).
+      
+      No return value for this function. 
 
-10.      set_current_search_type(self, function_class, type):
 
-This function is a setter for ".current_search_type" in other function class, which will 
-set the ".current_search_type" in "function_class" to the "type"
+   2. `create_table_first(self, cursor):`
 
-No return value for this function. 
+      create three table: `User_Information`, `Login_record`, and `Plate_Information` if not exist.
+      
+      The paramater `cursor` is a MySQLcursor, which can be defined by `mydb.cursor()` before calling
+      the function.
+      
+      No return value for this function. 
 
 
-11.      get_data_from_table(self, display_table, function_class):
+   3. `check_if_user_info_is_emtpy(self):`
 
-This function will capture the data in the display table, and store it into the list 
-".edited_data" in "function_class". 
+      create a user with default values (`userid = "ADMIN"`, `password = "Point1"`, and 
+      `permission = "ADMIN"`) if there's no user exists in `User_information` table.
+      
+      No return value for this function. 
+      
 
-Then compare it with "function_class.initial_data".
+   4. `check_ID_action(self, mode, userid, password, table):`
 
-Finally, refresh the display_table.
+      These functions will check the properties of `userid` from database's `table` according to 
+      the integer parameter `mode`.
+         ```python
+         mode = 0 for checking "userid" and "password" matches or not.
+         mode = 1 for checking "userid" is an ADMIN or not.
+         mode = 2 for checking "userid" exists or not.
+         ```
+      Then the function will return the corresponding bool value.
+      
+      P.S. Parameter `userid`, `password`, and `table` are all Strings. 
+
+
+   5. `add_user(self, userid, password, permission, real_name, gender):`
+
+      Add a user with given properties into the database.
+      
+      P.S. All parameters are strings, yet should follow the given format. And plate amount will be
+      setted to 0 by default.
+      
+      No return value for this function. 
+
+
+   6. `remove_user(self, userid):`
+
+      Remove the user with given `userid` from the database.
+      
+      No return value for this function. 
+
+
+   7. `add_login_record(self, userid, login_state, type):`
+
+      Add a record into the database with given `userid`, `state`, and specific `type`.
+      
+      P.S. All parameters are strings, yet should follow the given format.
+      
+      No return value for this function. 
+
+
+   8. `update_data_to_user_info(self, userid, password, permission, real_name, gender):`
+
+      Update the user information in database that matches `userid` with given `password`, 
+      `permission`, `real_name` and `gender`.
+      
+      All parameters are strings, yet should follow the given format.
+      
+      No return value for this function. 
+
+
+   9. `add_new_plate(self, plateid):`
+
+      Add a plate with given string parameter `plateid`, and default value of:
+  
+         ```python
+         Last_Assigned_User_ID = "NONE"
+         Available_for_assign = "TRUE"
+         Last_Assign_Time = "NONE"
+         Last_Deassign_Time = "NONE"
+         ```
+      into database.
+      
+      No return value for this function. 
+      
+
+   10. `remove_plate(self, plateid):`
+
+      Drop the plate that plateid = `plateid` from the database.
+      
+      No return value for this function. 
+
+
+   11. `deassign_assign_plate_to_user(self, mode, plateid, userid):`
+
+      This function will deassign or assign plates from or to user, according to the integer 
+      parameter `mode`.
+
+         ```python
+         mode = 0 form deassign plate from user.
+         mode = 1 from assign plate to user.
+         ```
+      
+      Deassign plate will update the plate's availability with given `plateid` to `TRUE`, and 
+      update `LAST_DEASSIGN_TIME` to current time.
+      
+      Assign plate will update the plate's availability with given `plateid` to `FALSE`, and 
+      update `LAST_ASSIGN_TIME` to current time.
+      
+      Finally, logs the message to the logging file.
+      
+      No return value for this function. 
+      
+
+   12. `update_plate_user_have(self, userid):`
+   
+      Update the number of plate that user's id = `userid` by checking the database. 
+      
+      No return value for this function. 
+   
+   
+   13. `get_data_from_database(self, table, type, value, pages):`
+   
+      This function will get the data from given `table` in database according to the given string 
+      parameters `type`, `value`, and `pages`, where `type` represents the searching type and 
+      `value` the specific value that can be search under the type. 
+      
+      For instance, when `type` is `id`, then value will be the actual id text that user input.
+      
+      Finally, fetch the data into a list as a return value.
+   
+   
+   14. `get_row_number_from_database(self, table, type, value):`
+   
+      Get the number of row that each `table` in database has, fetching it to an Integer then 
+      returns.
+      
+      The `type` and `value` are the same as `get_data_from_database()` function above, 
+   
+   15. `get_plate_id_user_have(self, userid):`
+   
+      This function get the `plate_id` of the plate that user with `userid` had got assigned, 
+      which will be used for deassiging while deleting the user that still has plates assigned to. 
+      
+      The return value is a list that contains all the `plate_id` of the plate that belongs to this 
+      user.
+
+
+1. Logger.py's manual:
+   
+   This class is a simple logging class that provides easier logging experience. 
+   To use this loggin class, just create a logger object with desired parameter. 
+   For instance, to create a logger named: TestLogger with a level of INFO and located at "Log_Folder/Test.log",
+   
+   You will have to declare a variable like following:
+   
+   TestLogger = logger_class("test_logger", logging.INFO, "Log_Folder/Test.log")
+   
+   Then, to log the message into log file, call the created logger with .logger, then you will be able to log the 
+   message with desired level.
+   
+   For instance to log a message into log file at info level, you will have to do it like:
+   
+   TestLogger.logger.info("This is a test info message )
 
-No return value for this function. 
-
-
-
-VII.MySQL_function class:
-
-This function class contains all the function that contains SQL statements.
-
-
-1.      connect_to_database(self):
-
-Connect to the target database, and returns a MySQLConnection (mydb).
-
-No return value for this function. 
-
-
-2.      create_table_first(self, cursor):
-
-create three table: User_Information, Login_record, and Plate_Information if not exist.
-
-The paramater "cursor" is a MySQLcursor, which can be defined by mydb.cursor() before calling
-the function.
-
-No return value for this function. 
-
-
-3.      check_if_user_info_is_emtpy(self):
-
-create a user with default values (userid = "ADMIN", password = "Point1", and 
-permission = "ADMIN") if there's no user exists in User_information table.
-
-No return value for this function. 
-
-
-4.      check_ID_action(self, mode, userid, password, table):
-
-These functions will check the properties of "userid" from database's "table" according to 
-the integer parameter "mode".
-
-mode = 0 for checking "userid" and "password" matches or not.
-mode = 1 for checking "userid" is an ADMIN or not.
-mode = 2 for checking "userid" exists or not.
-
-Then the function will return the corresponding bool value.
-
-P.S. Parameter "userid", "password", and "table" are all Strings. 
-
-
-5.      add_user(self, userid, password, permission, real_name, gender):
-
-Add a user with given properties into the database.
-
-P.S. All parameters are strings, yet should follow the given format. And plate amount will be
-setted to 0 by default.
-
-No return value for this function. 
-
-
-6.      remove_user(self, userid):
-
-Remove the user with given userid from the database.
-
-No return value for this function. 
-
-
-7.      add_login_record(self, userid, login_state, type):
-
-Add a record into the database with given userid, state, and specific type.
-
-P.S. All parameters are strings, yet should follow the given format.
-
-No return value for this function. 
-
-
-8.      update_data_to_user_info(self, userid, password, permission, real_name, gender):
-
-Update the user information in database that matches "userid" with given "password", 
-"permission", "real_name" and "gender".
-
-All parameters are strings, yet should follow the given format.
-
-No return value for this function. 
-
-
-9.      add_new_plate(self, plateid):
-
-Add a plate with given string parameter "plateid", and default value of:
-
-Last_Assigned_User_ID = "NONE"
-Available_for_assign = "TRUE"
-Last_Assign_Time = "NONE"
-Last_Deassign_Time = "NONE"
-
-into database.
-
-No return value for this function. 
-
-
-10.      remove_plate(self, plateid):
-
-Drop the plate that plateid = "plateid" from the database.
-
-No return value for this function. 
-
-
-11.      deassign_assign_plate_to_user(self, mode, plateid, userid):
-
-This function will deassign or assign plates from or to user, according to the integer 
-parameter "mode".
-mode = 0 form deassign plate from user.
-mode = 1 from assign plate to user.
-
-Deassign plate will update the plate's availability with given "plateid" to "TRUE", and 
-update LAST_DEASSIGN_TIME to current time.
-
-Assign plate will update the plate's availability with given "plateid" to "FALSE", and 
-update LAST_ASSIGN_TIME to current time.
-
-Finally, logs the message to the logging file.
-
-No return value for this function. 
-
-
-12.      update_plate_user_have(self, userid):
-
-Update the number of plate that user's id = "userid" by checking the database. 
-
-No return value for this function. 
-
-
-13.      get_data_from_database(self, table, type, value, pages):
-
-This function will get the data from given "table" in database according to the given string 
-parameters "type", "value", and "pages", where "type" represents the searching type and 
-"value" the specific value that can be search under the type. 
-
-For instance, when "type" is "id", then value will be the actual id text that user input.
-
-Finally, fetch the data into a list as a return value.
-
-
-14.      get_row_number_from_database(self, table, type, value):
-
-Get the number of row that each "table" in database has, fetching it to an Integer then 
-returns.
-
-The "type" and "value" are the same as get_data_from_database() function above, 
-
-15.      get_plate_id_user_have(self, userid):
-
-This function get the plate_id of the plate that user with "userid" had got assigned, 
-which will be used for deassiging while deleting the user that still has plates assigned to. 
-
-The return value is a list that contains all the plate_id of the plate that belongs to this 
-user.
-
-
-Logger.py's manual:
-
-'''
-This class is a simple logging class that provides easier logging experience. 
-To use this loggin class, just create a logger object with desired parameter. 
-For instance, to create a logger named: TestLogger with a level of INFO and located at "Log_Folder/Test.log",
-
-You will have to declare a variable like following:
-
-TestLogger = logger_class("test_logger", logging.INFO, "Log_Folder/Test.log")
-
-Then, to log the message into log file, call the created logger with .logger, then you will be able to log the 
-message with desired level.
-
-For instance to log a message into log file at info level, you will have to do it like:
-
-TestLogger.logger.info("This is a test info message )
-'''
