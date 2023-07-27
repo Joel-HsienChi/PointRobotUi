@@ -14,8 +14,8 @@ Before start using this UI program, please read following information:
 5.  Run the program and check the "Admin mode" checkbox, then Login with following id 
     and password:
     ```bash
-            ID:         "ADMIN"
-            PASSWORD:   "Point1" 
+            ID:         ADMIN
+            PASSWORD:   Point1 
     ```
 7.  While adding a new users, the default password will be set as "Point1", which the user can 
     edit it after logging in.
