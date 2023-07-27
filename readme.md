@@ -73,9 +73,13 @@ and password:
 
 <br/><br/>
 
-1. `class UI_Login_function:`
+1. ```python
+   class UI_Login_function:
+   ```
 
-   1. `check_ID_password_function(self, userid, password):`
+   1. ```python
+      check_ID_password_function(self, userid, password):
+      ```
      
       This function is connected to the login button in login_Ui, which will take the context that user types in textbox `UserID_Input` as `userid` and `password_Input`
       as `password`, checking the availability of them, and determine the login type to be recorded.
@@ -92,7 +96,7 @@ and password:
       
       P.S. both parameters userid and password are string.
 
-   2. `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
+   4. `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
          
       These two functions are used for displaying the windows when user input the correct userid and password.
          
@@ -101,7 +105,7 @@ and password:
          
       No return values for both of these function.
 
-   3. `display_normal_welcome_message():`
+   5. `display_normal_welcome_message():`
 
       This function will only be called when user logins in normal mode, it will capture the userid
       and display a popup windows that ask whether user want to display the personal information 
@@ -109,7 +113,7 @@ and password:
          
       No return values for this function.
 
-2. `class UI_Info_Editor_function:`
+3. `class UI_Info_Editor_function:`
 
    1. `Global variable:`
 
