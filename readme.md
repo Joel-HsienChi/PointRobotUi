@@ -281,7 +281,7 @@ and password:
 
       This function handle all the plate regarding action, and the integer parameter `mode` tells which action this function should perform:
 
-      ```python
+      ```
       mode = 0 for deassign the plate from user.
       mode = 1 for remove the plate.
       mode = 2 for assign the plate to user.
@@ -520,7 +520,7 @@ and password:
          This function will deassign or assign plates from or to user, according to the integer 
          parameter `mode`.
    
-         ```python
+         ```
          mode = 0 from deassign plate from user.
          mode = 1 from assign plate to user.
          ```
@@ -580,7 +580,8 @@ and password:
    
    - You will have to declare a variable like following:
    
-      - `TestLogger = logger_class("test_logger", logging.INFO, "Log_Folder/Test.log")`
+      - ```python
+        TestLogger = logger_class("test_logger", logging.INFO, "Log_Folder/Test.log")```
    
    - Then, to log the message into log file, call the created logger with .logger, then you will be able to log the 
    message with desired level.
