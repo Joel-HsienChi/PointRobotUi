@@ -6,11 +6,11 @@ Before start using this UI program, please read following information:
     ```bash
     /Project_Folder/UI_MySQL.py
     ```
-    please run it with python.
 
-4.  Edit the database information located in: 
-            class MySQL_function() --> def connect_to_database(self)
-
+2.  Edit the database information located in:
+    ```bash
+    class MySQL_function() --> def connect_to_database(self)
+    ```
 5.  Run the program and check the "Admin mode" checkbox, then Login with following id 
     and password:
             ID:         "ADMIN"
