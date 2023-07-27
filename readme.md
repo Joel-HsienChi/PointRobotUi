@@ -2,29 +2,29 @@
         
 Before start using this UI program, please read following information:
 
-1.      The python file is located at "/Project_Folder/UI_MySQL.py", please run it with python.
+1.  The python file is located at "/Project_Folder/UI_MySQL.py", please run it with python.
 
-2.      Edit the database information located in: 
-                class MySQL_function() --> def connect_to_database(self)
+2.  Edit the database information located in: 
+            class MySQL_function() --> def connect_to_database(self)
 
-3.      Run the program and check the "Admin mode" checkbox, then Login with following id 
-        and password:
-                ID:         "ADMIN"
-                PASSWORD:   "Point1" 
+3.  Run the program and check the "Admin mode" checkbox, then Login with following id 
+    and password:
+            ID:         "ADMIN"
+            PASSWORD:   "Point1" 
         
-4.      While adding a new users, the default password will be set as "Point1", which the user can 
-        edit it after logging in.
+4.  While adding a new users, the default password will be set as "Point1", which the user can 
+    edit it after logging in.
 
-5.      In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing 
-        purpose, the change will be applied only when the checkbox of the row is checked, including 
-        deletion and edit.
+5.  In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing 
+    purpose, the change will be applied only when the checkbox of the row is checked, including 
+    deletion and edit.
 
-6.      In Advance UI, the table display 20 row of data per pages.
+6.  In Advance UI, the table display 20 row of data per pages.
 
-7.      All the format relating information can be founded in Readme.md
+7.  All the format relating information can be founded in Readme.md
 
-8.      Logger.py is a helper class that can easily generate a logger object for logging purpose, and
-        manual regarding it is locate at end of this document.
+8.  Logger.py is a helper class that can easily generate a logger object for logging purpose, and
+    manual regarding it is locate at end of this document.
 
 ## UI_MySQL.py file contains four Ui classes and eight function classes:
 
