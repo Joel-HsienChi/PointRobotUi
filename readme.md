@@ -571,7 +571,7 @@ and password:
       user.
 
 
-##Logger.py's manual:
+## Logger.py's manual:
    
    This class is a simple logging class that provides easier logging experience. 
    To use this loggin class, just create a logger object with desired parameter. 
