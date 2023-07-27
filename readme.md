@@ -36,8 +36,8 @@ Please follow the following format while editing user info:
         Password:  
             1. Should not be less than 6 characters.
             2. Do not contains special character (e.g.!@#$*) and white space.
-            3. Should be the combination of numbers and alphabets, which should including one upper and lower 
-            letter each.
+            3. Should be the combination of numbers and alphabets, which should including atleast one upper and 
+            lower letter each.
         
         Permission: 
             1. Only accept "ADMIN" and "USER".
@@ -54,7 +54,8 @@ Please follow the following format while editing user info:
     Delete a User:
         1. Please check the checkbox at the row that you like to delete, users at rows that aren't checked 
         will not be deleted.
-        2. Deletion will be applied immediately after pressing the OK button in popup window
+        2. Deletion will be applied immediately after pressing the OK button in popup window.
+        3. If the user desired to delete still has plates, those plates will automatically be deassigned.
 
 
 Please follow the following format while editing plate info:
@@ -62,12 +63,13 @@ Please follow the following format while editing plate info:
     Add new plate:
         1. Please press the "Add new plate" button, after the popup window appears, then scan the barcode on 
         the plate.
-        2. After the scanning is done, press the "cancel" button.
+        2. The windows will automatically close and re-open for next scanning.
+        3. After the scanning is done, press the "cancel" button.
 
     Remove plate:
         1. Please check the checkbox at the row that you like to remove, plates at rows that aren't checked 
         will not be removed.
-        2. Deletion will be applied immediately after pressing the OK button in popup window
+        2. Deletion will be applied immediately after pressing the OK button in popup window.
     
     Assign plate to user:
         1. Only the plate that display "TRUE" at "Avaliable_for_assign" column can be assigned.
