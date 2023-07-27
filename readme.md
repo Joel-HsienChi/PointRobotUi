@@ -76,51 +76,50 @@ and password:
    1.  UI_Login_function class:
 
    - `check_ID_password_function(self, userid, password):`
-
-            This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input"
-            as password, checking the availability of them, and determine the login type to be recorded.
-               
-            No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
-               
-            However, if the login action failed, the error message will be displayed.
-               
-            Regardless the type of failure, whenever login action failed, function will return a boolean value of False. 
-               
-            On the other hand, whenever login action success, function will return boolean value of True.
-               
-            Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
-            
-            P.S. both parameters userid and password are string.
-<br/>
-      - `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
+     
+      This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input"
+      as password, checking the availability of them, and determine the login type to be recorded.
          
-         These two functions are used for displaying the windows when user input the correct userid 
-         and password.
-            
-         Only one of these windows will be displayed, which depends on whether user had checked the 
-         admin mode checkbox. 
-            
-         No return values for both of these function.
+      No matter whether user's success or failed the login action, the record will be added into database's Login_record table.
+         
+      However, if the login action failed, the error message will be displayed.
+         
+      Regardless the type of failure, whenever login action failed, function will return a boolean value of False. 
+         
+      On the other hand, whenever login action success, function will return boolean value of True.
+         
+      Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
+      
+      P.S. both parameters userid and password are string.
 <br/>
-      - `display_normal_welcome_message():`
+   - `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
+         
+      These two functions are used for displaying the windows when user input the correct userid 
+      and password.
+         
+      Only one of these windows will be displayed, which depends on whether user had checked the 
+      admin mode checkbox. 
+         
+      No return values for both of these function.
+<br/>
+   - `display_normal_welcome_message():`
 
-         This function will only be called when user logins in normal mode, it will capture the userid
-         and display a popup windows that ask whether user want to display the personal information 
-         editing window.
-            
-         No return values for this function.
+      This function will only be called when user logins in normal mode, it will capture the userid
+      and display a popup windows that ask whether user want to display the personal information 
+      editing window.
+         
+      No return values for this function.
 <br/>
 <br/>
+   2. UI_Info_Editor_function class:
 
-II. UI_Info_Editor_function class:
+   - `Global variable:`
 
-1.      Global variable:
-
-initial_data:
-List variable to store data that just captured from database.
-
-edited_data:
-List variable to store edited data that was captured from table.  
+      initial_data:
+      List variable to store data that just captured from database.
+      
+      edited_data:
+      List variable to store edited data that was captured from table.  
 
 
 2.      show_user(self, pages):
