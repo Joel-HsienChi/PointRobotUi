@@ -71,9 +71,10 @@ and password:
    
    - There are many variables that share the same name in different function, that is for convenience purpose. Therefore some of the function can simply use function's name as a parameter, and handle multiple function's action by just itself.
 
+<br/><br/>
 
    1.  UI_Login_function class:
-         - `check_ID_password_function(self, userid, password):`
+      - `check_ID_password_function(self, userid, password):`
 
          This function is connected to the login button in login_Ui, which will take the context that user types in textbox "UserID_Input" as userid and "password_Input" as password, checking the availability of them, and determine the login type to be recorded.
          
@@ -88,7 +89,8 @@ and password:
          Finally, regardless user login in Admin or Normal user mode, as long as the login is successful,this window (Loginui) will be closed.
          
          P.S. both parameters userid and password are string.
-      <br/>
+
+<br/>
    
       - `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
          
@@ -100,6 +102,7 @@ and password:
          
          No return values for both of these function.
 
+<br/>
 
       - `display_normal_welcome_message():`
 
@@ -108,7 +111,8 @@ and password:
          editing window.
          
          No return values for this function.
-
+<br/>
+<br/>
 
 II. UI_Info_Editor_function class:
 
