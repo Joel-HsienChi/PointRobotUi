@@ -31,7 +31,7 @@ PASSWORD:   Point1
 
 - This program is currently running a local database, please mod the database information before running the program, which is located in `__main__`
 
-     `SQL_function = MySQL_function("localhost", "root", "Ar0340252", "UI_database")`
+     `SQL_function = MySQL_function("localhost", "root", "password", "UI_database")`
 
 ## Please follow the following format while editing user info:
 
