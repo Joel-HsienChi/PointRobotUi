@@ -89,25 +89,25 @@ and password:
          
          P.S. both parameters userid and password are string.
 
+   
+      - `open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):`
+         
+         These two functions are used for displaying the windows when user input the correct userid 
+         and password.
+         
+         Only one of these windows will be displayed, which depends on whether user had checked the 
+         admin mode checkbox. 
+         
+         No return values for both of these function.
 
-2.      open_Concentrate_Advance_window(self),  open_Info_Editor_window(self):
 
-These two functions are used for displaying the windows when user input the correct userid 
-and password.
+      - `display_normal_welcome_message():`
 
-Only one of these windows will be displayed, which depends on whether user had checked the 
-admin mode checkbox. 
-
-No return values for both of these function.
-
-
-3.      display_normal_welcome_message():
-
-This function will only be called when user logins in normal mode, it will capture the userid
-and display a popup windows that ask whether user want to display the personal information 
-editing window.
-
-No return values for this function.
+         This function will only be called when user logins in normal mode, it will capture the userid
+         and display a popup windows that ask whether user want to display the personal information 
+         editing window.
+         
+         No return values for this function.
 
 
 II. UI_Info_Editor_function class:
