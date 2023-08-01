@@ -1131,7 +1131,7 @@ class UI_Login_function:
                     SQL_function.add_login_record(
                         userid, "SUCCESS", "Login with Advance mode")
                     self.open_Concentrate_Advance_window()
-                    Login.close()
+                    Login.hide()
                     return True
                 # Fail: Not admin but try to entering advance mode
                 elif (ID_is_admin is False and Loginui.checkBox.isChecked()):
@@ -1146,7 +1146,7 @@ class UI_Login_function:
                     self.display_normal_welcome_message()
                     SQL_function.add_login_record(
                         userid, "SUCCESS", "Login with normal user mode")
-                    Login.close()
+                    Login.hide()
                     return True
             # Fail: ID doesn't exist
             elif (ID_exist is False):
