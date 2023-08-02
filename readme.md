@@ -6,14 +6,13 @@
 
 - The python file is located at:
 ```bash
-/Project_Folder/UI_MySQL.py
+/Python_Folder/UI_MySQL.py
 ```
 
 - This program is currently running a local database, please mod the database information before running the program, which is located in `__main__`
 
 ```python
-     SQL_function = MySQL_function("localhost", "root", "password", "UI_database")
-
+     MySQL_func = MySQL_function_class("localhost", "root", "password", "UI_database")
 ```
 - Run the program and check the "Admin mode" checkbox, then Login with following id 
 and password:
