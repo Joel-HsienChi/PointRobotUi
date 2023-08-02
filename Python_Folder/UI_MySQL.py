@@ -1426,7 +1426,7 @@ if __name__ == "__main__":
     Register_function = UI_Register_function()
     Login_History_function = UI_Login_History_function()
     Plate_Info_function = UI_Plate_info_function()
-    MySQL_func = MySQL_function_class("localhost", "root", "Ar0340252", "UI_database")
+    MySQL_func = MySQL_function_class("localhost", "root", "password", "UI_database")
     helper = helper_function_class()
 
     # table in database's name
