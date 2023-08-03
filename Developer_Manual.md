@@ -8,6 +8,8 @@ Before start using this UI program, please read following information:
    ```bash
    /Python_Folder/UI_MySQL.py
    ```
+   please run it in directory `/Python_Folder` with python. 
+   
 
 2. This program is currently running a local database, please edit the database information before running the program, which are located in two places:
    
