@@ -258,6 +258,8 @@ and password:
       String that represent current searching type, including `all`, `id`, etc. 
       Initially set to `all`
 
+      - `value` 
+      String that handle the specific value for searching operation later.
 
    2. `show_login_history(self, pages):`
       This function will capture user's information from database according to the current 
@@ -284,6 +286,9 @@ and password:
 
       - `current_user:`
       User object that represent currently login user.
+
+      - `value` 
+      String that handle the specific value for searching operation later.      
 
 
    2. `show_plate_info(self, pages):`
