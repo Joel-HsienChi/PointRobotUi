@@ -30,19 +30,13 @@ and password:
    PASSWORD:   Point1 
    ```
 
-4. While adding a new users, the default password will be set as "Point1", which the user can edit it after logging in.
+4. While adding a new users, the default password will be set as `Point1`, which the user can edit it after logging in.
 
 5. In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing purpose, the change will be applied only when the checkbox of the row is checked, including deletion and edit.
 
 6. In Advance UI, the table display 20 row of data per pages.
 
-7. All the format relating information can be founded in Readme.md
-
-8. Logger.py is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
-
-9. User.py and Plate.py are object classes that contains necessary properties.
-
-10. helper_function.py and MySQL_function.py are function classes.
+7. All the format relating information can be founded below
 
 ## Please follow the following format while editing user info:
 
