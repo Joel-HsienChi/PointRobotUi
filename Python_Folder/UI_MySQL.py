@@ -1167,6 +1167,7 @@ class UI_Search_Edit_function(User_info_edit_function):
                 plate_list = user(data[1]).get_plate_id_user_have()
                 for plate in plate_list:
                     MySQL_func.deassign_assign_plate_to_user(0, plate[0], None)
+                    PlateInfoLogger.logger.info("'" + self.current_user.userid + "' has deassigned plate such that Plate ID: '" + plate[0] + "'.")                         
                 MySQL_func.remove_user(data[1])
                 AdminEditorLogger.logger.info(self.current_user.userid + " has deleted the user with USER ID: '" + data[1] + "'.")        
         helper.set_current_search_type(self, "all")
@@ -1347,8 +1348,10 @@ class UI_Plate_info_function:
                 if (mode == 0):
                     if (data[3] == "FALSE"):
                         MySQL_func.deassign_assign_plate_to_user(0, data[1], None)
+                        PlateInfoLogger.logger.info("'" + self.current_user.userid + "' has deassigned plate such that Plate ID: '" + data[1] + "'.") 
                 elif (mode == 1):
                     MySQL_func.remove_plate(data[1])
+                    PlateInfoLogger.logger.info("'" + self.current_user.userid + "' has removed plate such that Plate ID: '" + data[1] + "'.")                         
                 elif (mode == 2):
                     if (MySQL_func.check_ID_action(2, userid, None,  user_info_table) is True):
                         MySQL_func.deassign_assign_plate_to_user(1, data[1], userid)
@@ -1356,6 +1359,7 @@ class UI_Plate_info_function:
                             False)
                         Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(
                             True)
+                        PlateInfoLogger.logger.info("'" + self.current_user.userid + "' has assigned plate such that Plate ID: '" + data[1] + "' to user such that USER ID: '" + userid + "'.")                         
                     else:
                         Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(
                             True)
