@@ -44,7 +44,7 @@ and password:
 
 10. helper_function.py and MySQL_function.py are function classes.
 
-## UI_MySQL.py file contains four Ui classes and eight function classes:
+## UI_MySQL.py file contains four Ui classes and six function classes:
 
 ## UI classes:
 
