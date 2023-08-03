@@ -11,12 +11,12 @@ Before start using this UI program, please read following information:
 
 2. This program is currently running a local database, please edit the database information before running the program, which are located in two places:
    
-   1.  `UI_MySQL.py >> __main__:`
+   1.  `/Python_Folder/UI_MySQL.py >> __main__:`
       ```python
       MySQL_func = MySQL_function_class("localhost", "root", "password", "UI_database")
       ```
 
-   2. `Object.py >> class object: >> connect_database(self):`
+   2. `/Python_Folder/Object.py >> class object: >> connect_database(self):`
       ```python
         return MySQL_function_class("localhost", "root", "password", "UI_database")
       ```
@@ -30,7 +30,7 @@ and password:
    PASSWORD:   Point1 
    ```
 
-4. While adding a new users, the default password will be set as "Point1", which the user can edit it after logging in.
+4. While adding a new users, the default password will be set as `Point1`, which the user can edit it after logging in.
 
 5. In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing purpose, the change will be applied only when the checkbox of the row is checked, including deletion and edit.
 
