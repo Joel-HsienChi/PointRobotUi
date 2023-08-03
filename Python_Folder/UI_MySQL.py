@@ -1125,7 +1125,7 @@ class UI_Search_Edit_function(User_info_edit_function):
             else:
                 self.value = ""
    
-        # set pages
+        # set pages maximum and make sure pages doesn't exceed maximum pages
         self.user_info_pages_maximum = MySQL_func.get_pages_maximum(
             self, self.value, user_info_table)
         if (self.user_info_pages_maximum <= pages):
@@ -1225,46 +1225,48 @@ class UI_Register_function:
 class UI_Login_History_function:
     login_history_pages_maximum = 0
     current_search_type = "all"
+    value = ""
+
     # Function for Login History
     def show_login_history(self, pages):
         if (self.current_search_type == "id"):
             if (Login_function.Concentrate_Advance_ui.ID_input_login_history.text() == None):
-                value = ""
-            value = Login_function.Concentrate_Advance_ui.ID_input_login_history.text()
+                self.value = ""
+            self.value = Login_function.Concentrate_Advance_ui.ID_input_login_history.text()
         elif (self.current_search_type == "all"):
-            value = None
+            self.value = None
         elif (self.current_search_type == "status"):
             if (Login_function.Concentrate_Advance_ui.Success_button.isChecked()):
-                value = "SUCCESS"
+                self.value = "SUCCESS"
             elif (Login_function.Concentrate_Advance_ui.Fail_button.isChecked()):
-                value = "FAIL"
+                self.value = "FAIL"
             else:
-                value = ""
+                self.value = ""
         elif (self.current_search_type == "specific_type_fail"):
             if (Login_function.Concentrate_Advance_ui.ID_doesnt_exist_button.isChecked()):
-                value = "ID doesn't exist"
+                self.value = "ID doesn't exist"
             elif (Login_function.Concentrate_Advance_ui.Password_doesnt_match_ID_button.isChecked()):
-                value = "ID and Password doesn't match"
+                self.value = "ID and Password doesn't match"
             elif (Login_function.Concentrate_Advance_ui.User_enter_advance_button.isChecked()):
-                value = "A normal user tries to enter Advance mode"
+                self.value = "A normal user tries to enter Advance mode"
             else:
-                value = ""
+                self.value = ""
         elif (self.current_search_type == "specific_type_success"):
             if (Login_function.Concentrate_Advance_ui.Normal_login_button.isChecked()):
-                value = "Login with normal user mode"
+                self.value = "Login with normal user mode"
             elif (Login_function.Concentrate_Advance_ui.Advance_login_button.isChecked()):
-                value = "Login with Advance mode"
+                self.value = "Login with Advance mode"
             else:
-                value = ""
+                self.value = ""
 
+        # set pages maximum and make sure pages doesn't exceed maximum pages
         self.login_history_pages_maximum = MySQL_func.get_pages_maximum(
-            self, value, login_record_table)
+            self, self.value, login_record_table)
         if (self.login_history_pages_maximum <= pages):
-            Login_function.Concentrate_Advance_ui.Login_History_Pages.setValue(
-                self.login_history_pages_maximum)
+            Login_function.Concentrate_Advance_ui.Login_History_Pages.setValue(self.login_history_pages_maximum)
             pages = self.login_history_pages_maximum
         data = MySQL_func.get_data_from_database("Login_record",
-                                                    self.current_search_type, value, pages)
+                                                    self.current_search_type, self.value, pages)
         helper.insert_data_into_table(
             Login_function.Concentrate_Advance_ui.Display_Login_info, data, self)
 
@@ -1273,35 +1275,36 @@ class UI_Plate_info_function:
     current_search_type = "all"
     check_button_array = []
     current_user = user(None)      
-
+    value = ""
     # Function for Plate Scan
     def show_plate_info(self, pages):
         self.current_user = Login_function.Concentrate_Advance_ui.current_user
         self.table = Login_function.Concentrate_Advance_ui.Display_Plate_Info       
         if (self.current_search_type == "all"):
-            value = None
+            self.value = None
         elif (self.current_search_type == "user_id"):
             if (Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text() == None):
-                value = ""
-            value = Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text()
+                self.value = ""
+            self.value = Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text()
         elif (self.current_search_type == "plate_id"):
             if (Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text() == None):
-                value = ""
-            value = Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text()
+                self.value = ""
+            self.value = Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text()
         elif (self.current_search_type == "availability"):
             if (Login_function.Concentrate_Advance_ui.Available_FALSE.isChecked()):
-                value = "FALSE"
+                self.value = "FALSE"
             elif (Login_function.Concentrate_Advance_ui.Available_TRUE.isChecked()):
-                value = "TRUE"
+                self.value = "TRUE"
             else:
-                value = ""
+                self.value = ""
 
-        self.plate_info_pages_maximum = MySQL_func.get_pages_maximum( self, value, plate_info_table)
+        # set pages maximum and make sure pages doesn't exceed maximum pages
+        self.plate_info_pages_maximum = MySQL_func.get_pages_maximum( self, self.value, plate_info_table)
         if (self.plate_info_pages_maximum <= pages):
             Login_function.Concentrate_Advance_ui.Plate_info_pages.setValue(self.plate_info_pages_maximum)
             pages = self.plate_info_pages_maximum
 
-        data = MySQL_func.get_data_from_database("Plate_Information", self.current_search_type, value, pages)
+        data = MySQL_func.get_data_from_database("Plate_Information", self.current_search_type, self.value, pages)
         helper.insert_data_into_table(self.table, data, self)
         for i in range(self.table.rowCount()):
             self.table.setItem(i, 0, QtWidgets.QTableWidgetItem(None))
