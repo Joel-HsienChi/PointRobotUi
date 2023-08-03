@@ -9,7 +9,7 @@ Before start using this UI program, please read following information:
    /Project_Folder/UI_MySQL.py
    ```
 
-2. This program is currently running a local database, please edit the database information before running the program, which are located in three places:
+2. This program is currently running a local database, please edit the database information before running the program, which are located in two places:
    
    1.  `UI_MySQL.py >> __main__:`
       ```python
@@ -43,7 +43,6 @@ and password:
 9. User.py and Plate.py are object classes that contains necessary properties.
 
 10. helper_function.py and MySQL_function.py are function classes.
-
 
 ## UI_MySQL.py file contains four Ui classes and eight function classes:
 
@@ -127,52 +126,56 @@ and password:
          
       No return values for this function.
 
-2. `class UI_Info_Editor_function:`
+2. `class User_info_edit_function:`
 
-   1. `Global variable:`
+   This function is the parent class of `UI_Info_Editor_function` and `UI_Search_Edit_function`, provides the 
+   function that can be shared with both two children function class above.
 
-      - `initial_data:`
-      List variable to store data that just captured from database.
+   1. `__init__(self):`
       
-      - `edited_data:`
-      List variable to store edited data that was captured from table.  
+      Initializing function that provides properties that can be used for both function classes.
+      
+      - `self.check_botton_array`: List variable to store the checkbox
+      - `self.curernt_user`: `user` object that represent currently_login_user
+      - `self.table`: `QTableWidget` object that represent display table
 
-      - `check_button_array:`
-      List variable to store checkbox.
-
-      - `current_user:`
-      User object that represent currently login user.
-
-
-   2. `show_user(self, pages):`
+   2. `set_table(self, table, current_search_type, value, pages, *column_to_lock):`
 
       This function will capture user's information from database, then insert checkbox and user 
       information into table.
       
-      Meanwhile, the raw data that just got captured from database will be stored into the  
-      list `self.initial_data`.
+      No return values for this function.      
+
+   3. `save_info(self, table):`
+
+      This function will capture userids that were displayed on the given `table`(only capture rows that checkboxs were checked), 
+      and compare the data with the stored data in database, which can be searched by userid row by row. 
+
+      If datas in the row are valid, then those datas will be updated to database by userid.
+
+      No return values for this function.
+
+
+2. `class UI_Info_Editor_function(User_info_edit_function):`
+
+   1. `show_user(self, pages):`
+
+      This function will initialize `self.table` and `self.current_user`, then set up the table.
       
       No return values for this function.
 
-   3. `press_save(self):`
+   2. `press_save(self):`
 
-      This function is connect to the save button, which will capture data from table, then save it to database if its valid. 
+      This function save the data on the table by calling `save_info()` function, then handle the error message
 
-      Finally, handle the appearance of error message according to the input.
+      Finally, refresh the table with updated data. 
 
       No return values for this function.
 
 
-3. `UI_Search_Edit_function class:`
+3. `class UI_Search_Edit_function(User_info_edit_function):`
    
    1. `Global variable:`
-
-      - `initial_data:`
-      List variable to store data that just captured from database.
-      
-      - `edited_data:`
-      List variable to store edited data that was captured from table.  
-
       - `user_info_pages_maximum:`
       Integer that represent the maximum pages that can be displayed in table, to
       prevent user access the pages that doesn't contains data.
@@ -181,27 +184,24 @@ and password:
       String that represent current searching type, including `all`, `id`, etc. 
       Initially set to `all`. 
       
-      - `check_button_array_search_edit:`
-      List to store the index of row that mistake_proofing checkbox is checked. 
+      - `value` 
+      String that handle the specific value for searching operation later.
 
-      - `current_user:`
-      User object that represent currently login user.
 
    2. `show_user(self, pages):`
 
-      This function will capture user's information from database according to the current 
-      searching type and the interger `page` parameter, which represent the page number, then 
-      insert checkbox and user information into table.
-
-      No return value for this function.
+      This function will initialize `self.table` and `self.current_user`, then set the `value`, `pages` and lastly the table.
+      
+      No return values for this function.
 
    3. `press_save(self):`
 
-      This function is connect to the save button, which will capture data from table, then save it to database if its valid. 
+      This function save the data on the table by calling `save_info()` function, then handle the error message
 
-      Finally, handle the appearance of error message according to the input.
+      Finally, refresh the table with updated data. 
 
       No return values for this function.
+
 
    4. `open_Register_window(self):`
 
@@ -230,7 +230,7 @@ and password:
       No return value for this function.
 
 
-4. `UI_Register_function class:`
+4. `class UI_Register_function:`
 
    1. `press_register(self, userid, password, real_name):`
 
@@ -246,7 +246,7 @@ and password:
       P.S. All parameters are string.
 
 
-5. `UI_Login_History_function class:`
+5. `class UI_Login_History_function:`
 
    1. `Global variable:`
    
@@ -267,7 +267,7 @@ and password:
 
 
 
-6. `UI_Plate_info_function class:`
+6. `class UI_Plate_info_function:`
 
    1. `Global variable:`
 
@@ -307,10 +307,10 @@ and password:
       without input. 
 
 
-   4. `show_delete_plate_confirm(self):`
+   4. `show_confirm_window(self, title, text, action):`
       
-      This function will display a popup windows with confirm message, Pressing OK button will 
-      call the `remove_plate()` function below, while pressing Cancel will cancel the action.  
+      This function will display a popup windows with confirm message of given `title` and `text`, 
+      Pressing OK button will run the `action`, while pressing Cancel will cancel the `action``.  
       
       No return value for this function. 
       
@@ -342,12 +342,6 @@ and password:
       No return value for this function. 
 
 
-   7. `show_deassign_plate_to_user_window(self):`
-
-      This function will display a popup windows with confirm message, Pressing OK button will 
-      call the `deassign_plate()` function below, while pressing Cancel will cancel the action.  
-      
-      No return value for this function. 
 
 <br/><br/>
 
@@ -396,15 +390,7 @@ and password:
       P.S. Parameter `password` is a String to be checked if it's valid.
 
 
-   6. `data_comparison(self, edited_data, initial_data, current_user):`
-
-      This function compare two list parameters: `edited_data` and `initial_data`, then log the message
-      that record the changes that had been made into the logging file.
-      
-      No return value for this function. 
-
-
-   7. `insert_data_into_table(self, display_table, data, function_class):`
+   6. `insert_data_into_table(self, display_table, data, function_class):`
 
       Depends on the `display_table` (QTableWidget object) parameter that get passed into this 
       function, it will insert list object `data` and checkboxes corresponding to passed 
@@ -413,7 +399,7 @@ and password:
       No return value for this function. 
 
 
-   8. `insert-checkbox(self, function_class, display_table, data):`
+   7. `insert-checkbox(self, function_class, display_table, data):`
 
       This function will insert checkbox into the given display_table (QTableWidget object) in given 
       `function_class` (function object). 
@@ -423,19 +409,44 @@ and password:
       
       No return value for this function. 
       
-   9. `set_current_search_type(self, function_class, type):`
+   8. `set_current_search_type(self, function_class, type):`
 
       This function is a setter for `.current_search_type` in other function class, which will 
       set the `.current_search_type` in `function_class` to the `type`
       
       No return value for this function. 
 
+
+   9. `get_userid_on_table_list(self, display_table):`
+
+      This function will capture all the userid row by row in the `display_table`, then return it as a list.
+
+   10. `get_current_edited_row(self, display_table, row):`
+      
+      This function will capture all the data at the given row in the `disaply_table`, then return it as a list.
+
+   11. `compare_row_with_user(self, row, user, logger_class, current_user):`
+
+      This function will compare the given `row` list, and the properties of given `user`. Then log it into
+      
+      the given `logger_class` with the message that includes which `current_user` does the editing.
+
+      No return value for this function. 
+
+   12. `check_if_table_has_valid_data_only(self, display_table, function_class):`
+
+      This function will check whether the given `display_table` has invalid data (only check the row that checkbox is checked, that's where `function_class` get involved). 
+
+      Then return a list `fit_list` that contains three boolean values of `Permission_fit`, `Gender_fit`, and `Password_fit`, which will be used to 
+      handle the error message.
+
+
 <br/><br/>
 
 ## MySQL_function.py
 
    1. `__init__(self, host, user, password, database):`
-      Initial function for getting necessary info for properties.
+      Initializing function for getting necessary info for properties.
 
    2. `connect_to_database(self):`
 
@@ -444,7 +455,7 @@ and password:
       This function return the database connection `mydb`
 
 
-   2. `create_table_first(self, cursor):`
+   3. `create_table_first(self, cursor):`
 
       create three table: `User_Information`, `Login_record`, and `Plate_Information` if not exist.
       
@@ -454,7 +465,7 @@ and password:
       No return value for this function. 
 
 
-   3. `check_if_user_info_is_emtpy(self):`
+   4. `check_if_user_info_is_emtpy(self):`
 
       create a user with default values (`userid = "ADMIN"`, `password = "Point1"`, and 
       `permission = "ADMIN"`) if there's no user exists in `User_information` table.
@@ -462,7 +473,7 @@ and password:
       No return value for this function. 
       
 
-   4. `check_ID_action(self, mode, userid, password, table):`
+   5. `check_ID_action(self, mode, userid, password, table):`
 
       These functions will check the properties of `userid` from database's `table` according to 
       the integer parameter `mode`.
@@ -476,7 +487,7 @@ and password:
       P.S. Parameter `userid`, `password`, and `table` are all Strings. 
 
 
-   5. `add_user(self, userid, password, permission, real_name, gender):`
+   6. `add_user(self, userid, password, permission, real_name, gender):`
 
       Add a user with given properties into the database.
       
@@ -486,14 +497,14 @@ and password:
       No return value for this function. 
 
 
-   6. `remove_user(self, userid):`
+   7. `remove_user(self, userid):`
 
       Remove the user with given `userid` from the database.
       
       No return value for this function. 
 
 
-   7. `add_login_record(self, userid, login_state, type):`
+   8. `add_login_record(self, userid, login_state, type):`
 
       Add a record into the database with given `userid`, `state`, and specific `type`.
       
@@ -502,7 +513,7 @@ and password:
       No return value for this function. 
 
 
-   8. `update_data_to_user_info(self, userid, password, permission, real_name, gender):`
+   9. `update_data_to_user_info(self, userid, password, permission, real_name, gender):`
 
       Update the user information in database that matches `userid` with given `password`, 
       `permission`, `real_name` and `gender`.
@@ -512,7 +523,7 @@ and password:
       No return value for this function. 
 
 
-   9. `add_new_plate(self, plateid):`
+   10. `add_new_plate(self, plateid):`
 
       Add a plate with given string parameter `plateid`, and default value of:
          ```
@@ -526,14 +537,14 @@ and password:
       No return value for this function.
 
       
-   10. `remove_plate(self, plateid):`
+   11. `remove_plate(self, plateid):`
 
          Drop the plate that plateid = `plateid` from the database.
          
          No return value for this function.
    
 
-   11. `deassign_assign_plate_to_user(self, mode, plateid, userid):`
+   12. `deassign_assign_plate_to_user(self, mode, plateid, userid):`
 
          This function will deassign or assign plates from or to user, according to the integer 
          parameter `mode`.
@@ -554,14 +565,14 @@ and password:
          No return value for this function. 
          
 
-   12. `update_plate_user_have(self, userid):`
+   13. `update_plate_user_have(self, userid):`
       
          Update the number of plate that user's id = `userid` by checking the database. 
          
          No return value for this function. 
       
    
-   13. `get_data_from_database(self, table, type, value, pages):`
+   14. `get_data_from_database(self, table, type, value, pages):`
    
          This function will get the data from given `table` in database according to the given string 
          parameters `type`, `value`, and `pages`, where `type` represents the searching type and 
@@ -572,7 +583,7 @@ and password:
          Finally, fetch the data into a list as a return value.
       
    
-   14. `get_row_number_from_database(self, table, type, value):`
+   15. `get_row_number_from_database(self, table, type, value):`
    
          Get the number of row that each `table` in database has, fetching it to an Integer then 
          returns.
@@ -580,7 +591,7 @@ and password:
          The `type` and `value` are the same as `get_data_from_database()` function above, 
 
 
-   15. `get-pages_maximum(self, function_class, table):`
+   16. `get_pages_maximum(self, function_class, table):`
 
          This function get the number of data that database's table have according to the 
          `current_search_type` of given `function_class`, then divides them by 20 to get the 
@@ -589,15 +600,10 @@ and password:
          The "table" variable is a String, which will be used by passing the tables name that were 
          declared in `__main__`. 
 
-   16. `get_data_from_table(self, display_table, function_class):`
+   17. `update_row_to_database(self, row):`
 
-         This function will capture the data in the `display_table`, and store it into the list 
-         `.edited_data` in `function_class`. 
-         
-         Then compare it with `function_class.initial_data`.
-         
-         Finally, refresh the `display_table`.
-         
+         This function will update the database with given list `row`.
+
          No return value for this function. 
 
 <br/><br/>
@@ -617,6 +623,8 @@ and password:
 
       This is the child class of object class.
 
+      Whenever a `user` is created, it will automatically connect to the database (with `connect_database()` function), and fill-in the properties with the data captured from database by `userid`. 
+
       1. `Properties:`
          - `userid`, a String that follows format given in `Readme.md`
          - `password`, a String that follows format given in `Readme.md`
@@ -629,15 +637,19 @@ and password:
 
       2. `_init_(self, userid):`
       
-         Initial function that generate a user object with given `userid` and initialize the rest of the properties.
+         Initializing function that generate a user object with given `userid` and initialize the rest of the properties.
 
          Connect to the database by calling the parent function.
 
-         Then, assign value to the rest of properties by `GetUserInfo()`
+         Then, assign value to the rest of properties by `SetUserInfo()`
          
-      3. `GetUserInfo(self):`
+      3. `SetUserInfo(self):`
 
          This function will get datas from database, and assign them to `user`'s properties.
+
+         This function also work as a checker for the existance of `userid` in database.
+
+         If `userid` doesn't exist in database, return False, otherwise return True.
 
       3. `get_plate_id_user_have(self):`
       
@@ -651,6 +663,9 @@ and password:
       
       This is the child of object class too.
 
+      Whenever a `plate` is created, it will automatically connect to the database (with `connect_database()` function), and fill-in the properties with the data captured from database by `plateid`. 
+
+
       1. `Properties:`
 
          - `plateid`, a String without restriction.
@@ -660,30 +675,49 @@ and password:
          - `LastDeassignedTime`, a String that represent the last deassigned time
          - `exist`, a boolean that represent whether this user exists in database or not 
 
-      2. `GetPlateInfo(self):`
+      2. `_init_(self, plateid):`
+      
+         Initializing function that generate a user object with given `plate` and initialize the rest of the properties.
+
+         Connect to the database by calling the parent function.
+
+         Then, assign value to the rest of properties by `SetPlateInfo()`
+         
+
+      3. `SetPlateInfo(self):`
 
          This function will get datas from database, and assign them to `plate`'s properties.
 
+         This function also work as a checker for the existance of `plateid` in database.
+
+         If `plateid` doesn't exist in database, return False, otherwise return True.
 
 
 
+<br/><br/>
 
-## Logger.py's manual:
+## Logger.py:
    
+   1. `class logger_class:`
+
+      1. `__init__(self, logger_name, level, path):`
+
+         Initializing function that set the necessary properties with given parameter.
+
    - This class is a simple logging class that provides easier logging experience. 
    
-   - To use this loggin class, just create a logger object with desired parameter. 
+   - To use this loggin class, create a logger object with desired parameter. 
    
    - For instance, to create a logger named: `TestLogger` with a level of `INFO` and located at `Log_Folder/Test.log`,
    
    - You will have to declare a variable like following:
    
       - ```python
-        TestLogger = logger_class("test_logger", logging.INFO, "Log_Folder/Test.log")```
+        TestLogger = logger_class("test_logger", logging.INFO, "Log_Folder/Test.log")
+        ```
    
-   - Then, to log the message into log file, call the created logger with .logger, then you will be able to log the 
-   message with desired level.
+   - Then, to log the message into log file, call the created logger with .logger, then you will be able to log the message with desired level.
    
-   - For instance to log a message into log file at info level, you will have to do it like:
+   - For instance to log a message into log file at `info` level, you will have to do it like:
    
       - `TestLogger.logger.info("This is a test info message")`
