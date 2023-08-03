@@ -16,7 +16,7 @@ Before start using this UI program, please read following information:
       MySQL_func = MySQL_function_class("localhost", "root", "password", "UI_database")
       ```
 
-   2. `Object.py >> class object: >> connect_databse(self):`
+   2. `Object.py >> class object: >> connect_database(self):`
       ```python
         return MySQL_function_class("localhost", "root", "password", "UI_database")
       ```
