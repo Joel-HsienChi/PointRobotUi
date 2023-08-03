@@ -4,7 +4,7 @@
 
 Before start using this UI program, please read following information:
 
-1. The python file is located at:
+1. The main ui python file is located at:
    ```bash
    /Python_Folder/UI_MySQL.py
    ```
