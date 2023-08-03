@@ -88,6 +88,13 @@ and password:
 
 - There are many variables that share the same name in different function, that is for convenience purpose. Therefore some of the function can simply use function's name as a parameter, and handle multiple function's action by just itself.
 
+- If needed to perform a function after loggin in, please add a line at: `/Python_Folder/UI_MySQL.py >> class Ui_Login(object) >> def modding(self):` (more specifically, line 86 in `/Python_Folder/UI_MySQL.py` without any other modification before),and the format of the code that should be added is as:
+  ```python
+     self.Login_Button.clicked.connect(lambda: function_to_proceed)  
+  ```
+  Copy the whold code above, and replace `#function_to_procced` to the desired function.
+
+
 1. `class UI_Login_function:`
 
    1. `global variable`
