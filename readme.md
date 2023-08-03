@@ -36,7 +36,10 @@ and password:
 
 6. In Advance UI, the table display 20 row of data per pages.
 
-7. All the format relating information can be founded below
+7. All the format relating information can be founded below.
+
+8. `/UI_Folder` includes all the .ui files that were used in this program, if there's any need to edit the ui, please open the .ui file in designer.
+
 
 ## Please follow the following format while editing user info:
 
