@@ -38,11 +38,13 @@ and password:
 
 7. All the format relating information can be founded in Readme.md
 
-8. `Logger.py` is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
+8. `/UI_Folder` includes all the .ui files that were used in this program, if there's any need to edit the ui, please open the .ui file in designer.
 
-9. `User.py` and `Plate.py` are object classes that contains necessary properties.
+9. `Logger.py` is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
 
-10. `helper_function.py` and `MySQL_function.py` are function classes.
+10. `User.py` and `Plate.py` are object classes that contains necessary properties.
+
+11. `helper_function.py` and `MySQL_function.py` are function classes.
 
 ## UI_MySQL.py file contains four Ui classes and six function classes:
 
