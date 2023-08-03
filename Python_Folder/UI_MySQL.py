@@ -1091,9 +1091,11 @@ class UI_Search_Edit_function(User_info_edit_function):
     user_info_pages_maximum = 0
     current_search_type = "all"
     value = ""
+    pages = 0
     
     # Function for Search/Edit
     def show_user(self, pages):
+        self.pages  = pages
         self.current_user = Login_function.Concentrate_Advance_ui.current_user
         self.table = Login_function.Concentrate_Advance_ui.Display_table      
 
@@ -1128,16 +1130,16 @@ class UI_Search_Edit_function(User_info_edit_function):
         # set pages maximum and make sure pages doesn't exceed maximum pages
         self.user_info_pages_maximum = MySQL_func.get_pages_maximum(
             self, self.value, user_info_table)
-        if (self.user_info_pages_maximum <= pages):
+        if (self.user_info_pages_maximum <= self.pages):
             Login_function.Concentrate_Advance_ui.User_info_pages.setValue(self.user_info_pages_maximum)
             pages = self.user_info_pages_maximum
         
-        self.set_table(self.table, self.current_search_type, self.value, pages, 1, 6)
+        self.set_table(self.table, self.current_search_type, self.value, self.pages, 1, 6)
 
     def press_save(self):
         self.save_info(self.table)
         Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(self.permission_valid and self.gender_valid and self.password_valid)
-        self.show_user(0) 
+        self.show_user(self.pages) 
 
     def open_Register_window(self):
         self.Register = QtWidgets.QWidget()
@@ -1171,7 +1173,7 @@ class UI_Search_Edit_function(User_info_edit_function):
                 MySQL_func.remove_user(data[1])
                 AdminEditorLogger.logger.info(self.current_user.userid + " has deleted the user with USER ID: '" + data[1] + "'.")        
         helper.set_current_search_type(self, "all")
-        self.show_user(0)
+        self.show_user(self.pages)
         Plate_Info_function.show_plate_info(0)
 
 class UI_Register_function:
@@ -1217,7 +1219,7 @@ class UI_Register_function:
         # add the user
         MySQL_func.add_user(userid, helper.encode_password(password), permission, real_name, gender)
         helper.set_current_search_type(Search_Edit_function, "all")
-        Search_Edit_function.show_user(0)
+        Search_Edit_function.show_user(Search_Edit_function.pages)
         AdminEditorLogger.logger.info(Search_Edit_function.current_user.userid + " has add a new user with USER ID: '" + userid + "'.")        
         Search_Edit_function.Register_ui.Register_error_message.setHidden(True)
         Search_Edit_function.Register_ui.Register_success_message.setHidden(False)
@@ -1277,8 +1279,10 @@ class UI_Plate_info_function:
     check_button_array = []
     current_user = user(None)      
     value = ""
+    pages = 0
     # Function for Plate Scan
     def show_plate_info(self, pages):
+        self.pages = pages
         self.current_user = Login_function.Concentrate_Advance_ui.current_user
         self.table = Login_function.Concentrate_Advance_ui.Display_Plate_Info       
         if (self.current_search_type == "all"):
@@ -1301,11 +1305,11 @@ class UI_Plate_info_function:
 
         # set pages maximum and make sure pages doesn't exceed maximum pages
         self.plate_info_pages_maximum = MySQL_func.get_pages_maximum( self, self.value, plate_info_table)
-        if (self.plate_info_pages_maximum <= pages):
+        if (self.plate_info_pages_maximum <= self.pages):
             Login_function.Concentrate_Advance_ui.Plate_info_pages.setValue(self.plate_info_pages_maximum)
-            pages = self.plate_info_pages_maximum
+            self.pages = self.plate_info_pages_maximum
 
-        data = MySQL_func.get_data_from_database("Plate_Information", self.current_search_type, self.value, pages)
+        data = MySQL_func.get_data_from_database("Plate_Information", self.current_search_type, self.value, self.pages)
         helper.insert_data_into_table(self.table, data, self)
         for i in range(self.table.rowCount()):
             self.table.setItem(i, 0, QtWidgets.QTableWidgetItem(None))
@@ -1366,8 +1370,8 @@ class UI_Plate_info_function:
                         Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(
                             False)
                 MySQL_func.update_plate_user_have(data[2])
-        self.show_plate_info(0)
-        Search_Edit_function.show_user(0)
+        self.show_plate_info(self.pages)
+        Search_Edit_function.show_user(Search_Edit_function.pages)
 
 # main
 if __name__ == "__main__":
