@@ -187,6 +187,9 @@ and password:
       - `value` 
       String that handle the specific value for searching operation later.
 
+      - `pages`
+      Integer that handle the current display page.
+
 
    2. `show_user(self, pages):`
 
@@ -290,6 +293,8 @@ and password:
       - `value` 
       String that handle the specific value for searching operation later.      
 
+      - `pages`
+      Integer that handle the current display page.
 
    2. `show_plate_info(self, pages):`
 
