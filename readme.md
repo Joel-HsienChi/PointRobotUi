@@ -2,34 +2,47 @@
 
 ## Critical!
 
-## Before start using this UI program, please read following information:
+Before start using this UI program, please read following information:
 
-- The python file is located at:
-```bash
-/Python_Folder/UI_MySQL.py
-```
+1. The python file is located at:
+   ```bash
+   /Python_Folder/UI_MySQL.py
+   ```
 
-- This program is currently running a local database, please mod the database information before running the program, which is located in `__main__`
+2. This program is currently running a local database, please edit the database information before running the program, which are located in two places:
+   
+   1.  `UI_MySQL.py >> __main__:`
+      ```python
+      MySQL_func = MySQL_function_class("localhost", "root", "password", "UI_database")
+      ```
 
-```python
-     MySQL_func = MySQL_function_class("localhost", "root", "password", "UI_database")
-```
-- Run the program and check the "Admin mode" checkbox, then Login with following id 
+   2. `Object.py >> class object: >> connect_databse(self):`
+      ```python
+        return MySQL_function_class("localhost", "root", "password", "UI_database")
+      ```
+   What should be replaced are `("localhost", "root", "password", "UI_database")`.
+
+
+3. Run the program and check the "Admin mode" checkbox, then Login with following id 
 and password:
-```bash
-ID:         ADMIN
-PASSWORD:   Point1 
-```
-- While adding a new users, the default password will be set as "Point1", which the user can edit it after logging in.
+   ```bash
+   ID:         ADMIN
+   PASSWORD:   Point1 
+   ```
 
-- In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing purpose, the change will be applied only when the checkbox of the row is checked, including deletion and edit.
+4. While adding a new users, the default password will be set as "Point1", which the user can edit it after logging in.
 
-- In Advance UI, the table display 20 row of data per pages.
+5. In the editing window/tabs, the checkboxes infront of each rows are for mistake-proofing purpose, the change will be applied only when the checkbox of the row is checked, including deletion and edit.
 
-- All the format relating information can be founded in Readme.md
+6. In Advance UI, the table display 20 row of data per pages.
 
-- Logger.py is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
+7. All the format relating information can be founded in Readme.md
 
+8. Logger.py is a helper class that can easily generate a logger object for logging purpose, and manual regarding it is locate at end of this document.
+
+9. User.py and Plate.py are object classes that contains necessary properties.
+
+10. helper_function.py and MySQL_function.py are function classes.
 
 ## Please follow the following format while editing user info:
 
