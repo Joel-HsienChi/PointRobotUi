@@ -92,7 +92,7 @@ and password:
   ```python
      self.Login_Button.clicked.connect(lambda: function_to_proceed)  
   ```
-  Copy the whold code above, and replace `#function_to_procced` to the desired function.
+  Copy the whold code above, and replace `function_to_procced` to the desired function.
 
 
 1. `class UI_Login_function:`
