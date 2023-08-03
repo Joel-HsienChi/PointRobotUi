@@ -1172,7 +1172,6 @@ class UI_Search_Edit_function(User_info_edit_function):
                     PlateInfoLogger.logger.info("'" + self.current_user.userid + "' has deassigned plate such that Plate ID: '" + plate[0] + "'.")                         
                 MySQL_func.remove_user(data[1])
                 AdminEditorLogger.logger.info(self.current_user.userid + " has deleted the user with USER ID: '" + data[1] + "'.")        
-        helper.set_current_search_type(self, "all")
         self.show_user(self.pages)
         Plate_Info_function.show_plate_info(0)
 
@@ -1218,7 +1217,6 @@ class UI_Register_function:
 
         # add the user
         MySQL_func.add_user(userid, helper.encode_password(password), permission, real_name, gender)
-        helper.set_current_search_type(Search_Edit_function, "all")
         Search_Edit_function.show_user(Search_Edit_function.pages)
         AdminEditorLogger.logger.info(Search_Edit_function.current_user.userid + " has add a new user with USER ID: '" + userid + "'.")        
         Search_Edit_function.Register_ui.Register_error_message.setHidden(True)
@@ -1280,6 +1278,7 @@ class UI_Plate_info_function:
     current_user = user(None)      
     value = ""
     pages = 0
+
     # Function for Plate Scan
     def show_plate_info(self, pages):
         self.pages = pages
