@@ -6,7 +6,7 @@ Before start using this UI program, please read following information:
 
 1. The python file is located at:
    ```bash
-   /Project_Folder/UI_MySQL.py
+   /Python_Folder/UI_MySQL.py
    ```
 
 2. This program is currently running a local database, please edit the database information before running the program, which are located in two places:
@@ -16,7 +16,7 @@ Before start using this UI program, please read following information:
       MySQL_func = MySQL_function_class("localhost", "root", "password", "UI_database")
       ```
 
-   2. `Object.py >> class object: >> connect_databse(self):`
+   2. `Object.py >> class object: >> connect_database(self):`
       ```python
         return MySQL_function_class("localhost", "root", "password", "UI_database")
       ```
